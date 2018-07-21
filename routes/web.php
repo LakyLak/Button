@@ -27,4 +27,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/admin/dashboard', 'AdminController@dashboard');
     Route::get('/admin/account_settings', 'AdminController@account_settings');
+    //  Route::post('/admin/check_password', 'AdminController@check_password');
+    Route::post('/admin/update_password', 'AdminController@update_password');
+    // Route::match(['get', 'post'], '/admin/update_password', 'AdminController@update_password');
 }); 
