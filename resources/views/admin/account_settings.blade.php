@@ -43,7 +43,7 @@
                 <div class="card">
                     <form class="form-horizontal" method="post" action="{{ url('/admin/update_password') }}" >{{ csrf_field() }}
                         <div class="card-body">
-                            <h4 class="card-title">Password change</h4>
+                            <h4 class="card-title">Password Update</h4>
                             <div class="form-group row">
                                 <label for="current_pwd" class="col-sm-3 text-right control-label col-form-label">Current Password</label>
                                 <div class="col-sm-9">
@@ -68,7 +68,7 @@
                         </div>
                         <div class="border-top">
                             <div class="card-body">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Update Password</button>
                             </div>
                         </div>
                     </form>

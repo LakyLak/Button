@@ -53,18 +53,6 @@ class AdminController extends Controller
         return view('admin.account_settings');
     }
 
-    // public function check_password(Request $request)
-    // {
-    //     $data = $request->all();
-    //     $current_password = $data['current_pwd'];
-    //     $check_password = User::where(['admin' => 1])->first();
-    //     if(Hash::check($current_password, $check_password)) {
-    //         echo 'true'; die;
-    //     } else {
-    //         echo 'false'; die;
-    //     }   
-    // }
-
     public function update_password(Request $request)
     {
         $data = $request->all();
@@ -91,8 +79,6 @@ class AdminController extends Controller
         }
 
         if ($request->isMethod('POST')) {
-            // echo "<pre>"; print_r($data); die;
-            
             if (Hash::check($data['current_pwd'], $user->password)) {
                 $password = bcrypt($data['new_pwd']);
                 $user->update(['password' => $password]);

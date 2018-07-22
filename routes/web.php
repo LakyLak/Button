@@ -30,4 +30,6 @@ Route::group(['middleware' => ['auth']], function() {
     //  Route::post('/admin/check_password', 'AdminController@check_password');
     Route::post('/admin/update_password', 'AdminController@update_password');
     // Route::match(['get', 'post'], '/admin/update_password', 'AdminController@update_password');
+
+    Route::match(['get', 'post'], '/admin/add_category', 'CategoryController@addCategory'); 
 }); 
