@@ -1,0 +1,12 @@
+.categories-grid-accordion-body {
+    padding:1.25rem 1.25rem 0 !important;
+}
+
+.categories-grid-accordion-ul {
+    margin: 0 !important;
+    padding-left: 0 !important;
+}
+
+.categories-grid-accordion-li {
+        list-style-type: none !important;
+}

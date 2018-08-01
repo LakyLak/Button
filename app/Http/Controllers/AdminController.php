@@ -12,19 +12,21 @@ use Illuminate\Support\Facades\Validator;
 use App\Rules\CheckPassword;
 class AdminController extends Controller
 {
+    // public function login()
+    // {
+    //     return User::create([
+    //         'name' => 'admin',
+    //         'email' => 'admin@admin.com',
+    //         'password' => bcrypt('123456'),
+    //     ]);
+    // }
 
+    
     public function login(Request $request)
     {
-        // $this->validate($request, [
-            // 'email' => 'required|email|unique:users',
-            // 'password' => 'required|min:4'
-        // ]);
-        
         if ($request->isMethod('POST')) {
             $data = $request->input();
-            // $data = $request;
-            // Log::info('data: ' . print_r($request['email'], true));
-            // return redirect('/admin/dashboard');
+
             if (Auth::attempt(['email' => $data['email'], 'password' => $data['password'], 'admin' => 1 ])) {
                 Log::info('success');
                 return redirect('/admin/dashboard');
@@ -36,6 +38,56 @@ class AdminController extends Controller
         
         return view('admin.admin_login');
     }
+    
+    public function register(Request $request)
+    {
+        Log::info("enters register");
+        
+        if ($request->isMethod('post')) {
+            $data = $request->all();
+
+            Log::info("enters post before validation");
+    
+            $rules = [
+                'new_pwd' => 'required|min:4',
+                'confirm_pwd' => 'required|min:4|same:new_pwd',
+            ];
+    
+            $validator = Validator::make($data, $rules, $messages = [])
+                ->setAttributeNames([
+                    'new_pwd' => 'Password',
+                    'confirm_pwd' => 'Confirm Password'
+                ]);
+    
+            if ($validator->fails()) {
+                Log::info("validator failed");
+                return back()->withInput()->withErrors($validator->messages());
+            } else {
+                Log::info('success');
+                // User::create([
+                //     'name' => $data['name'],
+                //     'email' => $data['email'],
+                //     'password' => bcrypt($data['new_pwd']),
+                //     'admin' => 1
+                // ]);
+
+                $user = new User;
+
+                $user->name = $data['name'];
+                $user->email = $data['email'];
+                $user->password = bcrypt($data['new_pwd']);
+                // TODO treba zabezpečiť registraciu a povoliť len od admina
+                $user->admin = 1;
+
+                $user->save();
+
+                Auth::login($user);
+                return redirect('/admin/dashboard')->with('flash_success_message', 'User has been registered');
+            } 
+        }
+
+        return view('admin.admin_register');
+    }
 
     public function logout()
     {
@@ -45,12 +97,12 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-        return view('admin.dashboard');
+        return view('admin.dashboard.dashboard');
     }
 
     public function account_settings()
     {
-        return view('admin.account_settings');
+        return view('admin.dashboard.account_settings');
     }
 
     public function update_password(Request $request)
