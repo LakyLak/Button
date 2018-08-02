@@ -15,6 +15,7 @@
     {{-- <link href="../backend/assets/libs/flot/css/float-chart.css" rel="stylesheet"> --}}
     <link href="{{ URL::asset('../backend/assets/libs/flot/css/float-chart.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('../css/backend_css/custom_css.css') }}" rel="stylesheet">
+    <link type="text/css" href="{{ URL::asset('../../assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="{{ URL::asset('../css/backend_css/style.min.css') }}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -81,7 +82,20 @@
     <script src="{{ URL::asset('../backend/assets/libs/flot/jquery.flot.crosshair.js') }}"></script>
     <script src="{{ URL::asset('../backend/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js') }}"></script>
     <script src="{{ URL::asset('../js/backend_js/pages/chart/chart-page-init.js') }}"></script>
+    <script src="{{ URL::asset('../backend/assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
+    
+    <script>    
+        /*datwpicker*/
+        jQuery('.mydatepicker').datepicker();
+        jQuery('#datepicker-autoclose').datepicker({
+            autoclose: true,
+            todayHighlight: true
+        });
+        var quill = new Quill('#editor', {
+            theme: 'snow'
+        });
 
+    </script>
 
 </body>
 

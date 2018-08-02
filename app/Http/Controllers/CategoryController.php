@@ -13,6 +13,57 @@ class CategoryController extends Controller
         return view('admin.categories.index', compact('categories'));
     }
 
+    public function filter(Request $request)
+    {
+        $data = $request->all();
+        $cond = [];
+        $conditions = [];
+        
+        foreach ($data as $field => $value) {
+            if (empty($value) || $field == '_token') {continue;}
+            // echo '<pre>'; print_r($field);
+            $options = explode('_', $field);
+
+            // echo '<pre>'; print_r($options); die;
+
+            switch ($options[1]) {
+                case 'like':
+                    $cond['like'] = [$options[0] => $value];
+                    $conditions[] = [$options[0], 'LIKE', '%'.$value.'%'];
+                    break;
+                case 'gt':
+                    $cond['gt'] = [$options[0] => $value];
+                    $conditions[] = [$options[0], '>', $value];
+                    break;
+                    case 'lt':
+                    $cond['lt'] = [$options[0] => $value];
+                    $conditions[] = [$options[0], '<', $value];
+                    break;
+                    case 'gte':
+                    $cond['gte'] = [$options[0] => $value];
+                    $conditions[] = [$options[0], '>=', $value];
+                    break;
+                    case 'lte':
+                    $cond['lte'] = [$options[0] => $value];
+                    $conditions[] = [$options[0], '<=', $value];
+                    break;
+                    default:
+                    $cond['eq'] = [$options[0] => $value];
+                    $conditions[] = [$options[0], '=', $value];
+            }
+
+        }
+
+        
+        echo '<pre>'; print_r($conditions); die;
+
+
+        
+        $categories = Category::where($conditions)->get();
+
+        return view('admin.categories.index', compact('categories'));
+    }
+
     public function change_status($id, $status)
     {
         $category = Category::find($id);

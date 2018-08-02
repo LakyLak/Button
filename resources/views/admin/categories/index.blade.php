@@ -36,6 +36,67 @@
             </div>
         </div>
     @endif
+
+    {{-- filter --}}
+    <div class="row">
+        <div class="col-md-12">
+            <br>
+            <a class="card-header link collapsed border-top filter-button collapsed" style="margin:0 0 0 18px; padding:0.75rem 2.75rem;" 
+                data-toggle="collapse" data-parent="#filter" href="#Toggle-filter" aria-expanded="true" aria-controls="Toggle-filter">
+                <i class="fas fa-search" aria-hidden="true"></i>
+                <span>Filter</span>
+            </a>
+            <div id="Toggle-filter" class="collapse multi-collapse show">
+                <div class="card-body widget-content filter-accordion-body">
+                    <div class="card">
+                        <form class="form-horizontal" method="post" action="{{ url('/admin/categories/filter') }}" 
+                            name="filter_categories" id="filter_categories" novalidate="novalidate">{{ csrf_field() }}
+                            <div class="card-body">
+                                <h5 class="card-title">Filter Categories</h5>
+                                <div class="row mb-3">
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label for="name_like">Name</label>
+                                            <input type="text" id="name_like" name="name_like" class="form-control" value="">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label for="description_like">Description</label>
+                                            <input type="text" id="description_like" name="description_like" class="form-control" value="">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <label>Created From</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control mydatepicker" placeholder="mm/dd/yyyy">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <label>Created To</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control mydatepicker" placeholder="mm/dd/yyyy">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-success">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -74,7 +135,7 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a class="card-header link collapsed border-top" data-toggle="collapse" data-parent="#accordian-4" 
+                                    <a class="card-header link collapsed border-top" data-toggle="collapse" data-parent="#itmes" 
                                         href="#Toggle-{{ $category->id }}" aria-expanded="false" aria-controls="Toggle-{{ $category->id }}">
                                         <i class="fas fa-list-ul" aria-hidden="true"></i>
                                         <span>Items</span>
