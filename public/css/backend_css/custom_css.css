@@ -10,3 +10,7 @@
 .categories-grid-accordion-li {
         list-style-type: none !important;
 }
+
+.pagination ul {
+    margin-bottom: 0;
+}

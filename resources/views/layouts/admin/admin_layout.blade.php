@@ -43,7 +43,8 @@
         @include('admin.includes.admin_header')
         @include('admin.includes.admin_sidebar')
         <div class="page-wrapper">
-            {{-- @include('admin.includes.breadcrumb') --}}
+            @include('admin.includes.flash_messages')
+            @include('admin.includes.breadcrumb', ['path' => Request::path(), 'parent' => 'dashboard'])
             
             @yield('content')
 

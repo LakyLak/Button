@@ -7,61 +7,53 @@ use App\Category;
 
 class CategoryController extends Controller
 {
-    public function index()
+    public function index(Request $request) 
     {
-        $categories = Category::all();
-        return view('admin.categories.index', compact('categories'));
-    }
+        $filter_fields = [
+            [
+                'form_name' => 'name_like',
+                'label' => 'Name',
+                'type' => 'text'
+            ],
+            [
+                'form_name' => 'description_like',
+                'label' => 'Description',
+                'type' => 'text'
+            ],
+            [
+                'form_name' => 'created_at_gte',
+                'label' => 'Created From',
+                'type' => 'datepicker'
+            ],
+            [
+                'form_name' => 'created_at_lte',
+                'label' => 'Created To',
+                'type' => 'datepicker'
+            ]
+        ];
+        // $simple_pagination = true;
+        $per_page = 3;
 
-    public function filter(Request $request)
-    {
-        $data = $request->all();
-        $cond = [];
-        $conditions = [];
+        // echo '<pre>'; print_r($request->all()); die;    
+
+        $data['pagination']['per_page'] = $per_page;
+        $data['pagination']['current_page'] = $request->page;
+        $filter_data = [];
+        $total = Category::count();
+        $categories = Category::paginate($per_page);
         
-        foreach ($data as $field => $value) {
-            if (empty($value) || $field == '_token') {continue;}
-            // echo '<pre>'; print_r($field);
-            $options = explode('_', $field);
-
-            // echo '<pre>'; print_r($options); die;
-
-            switch ($options[1]) {
-                case 'like':
-                    $cond['like'] = [$options[0] => $value];
-                    $conditions[] = [$options[0], 'LIKE', '%'.$value.'%'];
-                    break;
-                case 'gt':
-                    $cond['gt'] = [$options[0] => $value];
-                    $conditions[] = [$options[0], '>', $value];
-                    break;
-                    case 'lt':
-                    $cond['lt'] = [$options[0] => $value];
-                    $conditions[] = [$options[0], '<', $value];
-                    break;
-                    case 'gte':
-                    $cond['gte'] = [$options[0] => $value];
-                    $conditions[] = [$options[0], '>=', $value];
-                    break;
-                    case 'lte':
-                    $cond['lte'] = [$options[0] => $value];
-                    $conditions[] = [$options[0], '<=', $value];
-                    break;
-                    default:
-                    $cond['eq'] = [$options[0] => $value];
-                    $conditions[] = [$options[0], '=', $value];
-            }
-
+        if ($request->isMethod('post')) {
+            $filter_data = $request->all();
+            
+            $data['filter']['filter_data'] = $filter_data;
+            
+            $conditions = filter_conditions($filter_data);
+            $total = Category::where($conditions)->count();
+            $categories = Category::where($conditions)->paginate($per_page);
         }
-
+        $data['pagination']['total'] = $total;
         
-        echo '<pre>'; print_r($conditions); die;
-
-
-        
-        $categories = Category::where($conditions)->get();
-
-        return view('admin.categories.index', compact('categories'));
+        return view('admin.categories.index', compact(['categories', 'filter_data', 'filter_fields', 'data']));
     }
 
     public function change_status($id, $status)

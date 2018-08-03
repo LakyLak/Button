@@ -1,41 +1,5 @@
 @extends('layouts.admin.admin_layout')
 @section('content')
-    <div class="page-breadcrumb">
-        <div class="row">
-            <div class="col-12 d-flex no-block align-items-center">
-                <h4 class="page-title">Item Categories</h4>
-                <div class="ml-auto text-right">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Library</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- TODO Vymazat falsh messages su tu len pre kopirovanie do dalsich views --}}
-    @if(Session::has('flash_error_message'))
-        <div class="row">
-            <div class="col-12" sstyle="margin:1rem 1rem 0;">
-                <div class="alert alert-danger alert-block">
-                    <button type="button" class="close" data-dismiss="alert">×</button>	
-                        <strong>{!! session('flash_error_message') !!}</strong>
-                </div>
-            </div>
-        </div>
-        @endif
-    @if(Session::has('flash_success_message'))
-        <div class="row">
-            <div class="col-12" style="margin:1rem 1rem 0;width:95%;">
-                <div class="alert alert-success alert-block">
-                    <button type="button" class="close" data-dismiss="alert">×</button>	
-                    <strong>{!! session('flash_success_message') !!}</strong>
-                </div>
-            </div>
-        </div>
-    @endif
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
@@ -43,8 +7,6 @@
                     name="add_category" id="add_category" novalidate="novalidate">{{ csrf_field() }}
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Add Category</h5>
-                            <br>
                             <div class="form-group row">
                                 <label for="name" class="col-sm-3 text-right control-label col-form-label">Category Name</label>
                                 <div class="col-sm-9">
