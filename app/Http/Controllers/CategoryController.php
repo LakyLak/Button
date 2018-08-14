@@ -4,24 +4,44 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use Schema;
+use Log;
+// use App\Http\Traits\SettingsTrait;
+use App\Services\AdminGridSettingsService;
 
 class CategoryController extends Controller
 {
-    public function index()
-    {
-        $categories = Category::all();
-        return view('admin.categories.index', compact('categories'));
+    // use SettingsTrait;
+
+    public function index(Request $request) 
+    {       
+        $table = 'categories';
+
+        $service = new AdminGridSettingsService();
+        
+        $data = $service->getData($table);
+        // Log::info("data Categories controller\n" . print_r($data, true));
+
+        $data['pagination']['current_page'] = $request->page;
+        $data['filter']['filter_data'] = $request->except('page', 'sort', 'order');
+
+        
+        $conditions = filter_conditions($data['filter']['filter_data']);
+        $data['pagination']['total'] = Category::where($conditions)->count();
+        $items = Category::where($conditions)->sortable()->paginate($data['pagination']['per_page']);
+
+        return view('admin.categories.index', compact(['items', 'data']));
     }
 
-    public function change_status($id, $status)
+    public function activate($id, $status)
     {
         $category = Category::find($id);
         if ($status != $category->status) {
             $category->status = $status;
             $category->save();
 
-            return redirect()->back();
         }
+        return redirect()->back();
     }
     
     public function add(Request $request)
@@ -49,7 +69,6 @@ class CategoryController extends Controller
         return view('admin.categories.add');
     }
 
-    // TODO edit action & view
     public function edit(Request $request)
     {
         $category = Category::find($request->id);

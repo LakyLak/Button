@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://dev.button/admin/categories -->
+<html dir="ltr" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="http://dev.button/backend/assets/images/favicon.png">
+    <title>Button</title>
+    <!-- Custom CSS -->
+    
+    <link href="./Button_files/float-chart.css" rel="stylesheet">
+    <link href="./Button_files/custom_css.css" rel="stylesheet">
+    <link type="text/css" href="./Button_files/bootstrap-datepicker.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="./Button_files/style.min.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style></head>
+
+<body cz-shortcut-listen="true" class="modal-open" style="padding-right: 15px;">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader" style="display: none;">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper" data-sidebartype="full">
+        <!-- ============================================================== -->
+<!-- Topbar header - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<header class="topbar" data-navbarbg="skin5">
+    <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+        <div class="navbar-header" data-logobg="skin5">
+            <!-- This is for the sidebar toggle which is visible on mobile only -->
+            <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="http://dev.button/admin/dashboard"><i class="ti-menu ti-close"></i></a>
+            <!-- ============================================================== -->
+            <!-- Logo -->
+            <!-- ============================================================== -->
+            <a class="navbar-brand" href="http://dev.button/admin/dashboard">
+                <!-- Logo icon -->
+                <b class="logo-icon p-l-10">
+                    <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                    <!-- Dark Logo icon -->
+                    <img src="./Button_files/logo-icon.png" alt="homepage" class="light-logo">
+                    
+                </b>
+                <!--End Logo icon -->
+                    <!-- Logo text -->
+                <span class="logo-text">
+                        <!-- dark Logo text -->
+                        <img src="./Button_files/logo-text.png" alt="homepage" class="light-logo">
+                    
+                </span>
+                <!-- Logo icon -->
+                <!-- <b class="logo-icon"> -->
+                    <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                    <!-- Dark Logo icon -->
+                    <!-- <img src="http://dev.button/../backend/assets/images/logo-text.png" alt="homepage" class="light-logo" /> -->
+                    
+                <!-- </b> -->
+                <!--End Logo icon -->
+            </a>
+            <!-- ============================================================== -->
+            <!-- End Logo -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Toggle which is visible on mobile only -->
+            <!-- ============================================================== -->
+            <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="ti-more"></i></a>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Logo -->
+        <!-- ============================================================== -->
+        <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+            <!-- ============================================================== -->
+            <!-- toggle and nav items -->
+            <!-- ============================================================== -->
+            <ul class="navbar-nav float-left mr-auto">
+                <li class="nav-item d-none d-md-block"><a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a></li>
+                <!-- ============================================================== -->
+                <!-- create new -->
+                <!-- ============================================================== -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://dev.button/admin/categories#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="d-none d-md-block">Create New <i class="fa fa-angle-down"></i></span>
+                        <span class="d-block d-md-none"><i class="fa fa-plus"></i></span>   
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="http://dev.button/admin/categories/add">New Category</a>
+                        <a class="dropdown-item" href="http://dev.button/admin/items/add">New Item</a>
+                        <br>
+                        <a class="dropdown-item" href="http://dev.button/admin/categories#">Action</a>
+                        <a class="dropdown-item" href="http://dev.button/admin/categories#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="http://dev.button/admin/categories#">Something else here</a>
+                    </div>
+                </li>
+                <!-- ============================================================== -->
+                <!-- Search -->
+                <!-- ============================================================== -->
+                <li class="nav-item search-box"> <a class="nav-link waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
+                    <form class="app-search position-absolute">
+                        <input type="text" class="form-control" placeholder="Search &amp; enter"> <a class="srh-btn"><i class="ti-close"></i></a>
+                    </form>
+                </li>
+            </ul>
+            <!-- ============================================================== -->
+            <!-- Right side toggle and nav items -->
+            <!-- ============================================================== -->
+            <ul class="navbar-nav float-right">
+                <!-- ============================================================== -->
+                <!-- Comment -->
+                <!-- ============================================================== -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle waves-effect waves-dark" href="http://dev.button/admin/categories" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-bell font-24"></i>
+                    </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="http://dev.button/admin/categories#">Action</a>
+                        <a class="dropdown-item" href="http://dev.button/admin/categories#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="http://dev.button/admin/categories#">Something else here</a>
+                    </div>
+                </li>
+                <!-- ============================================================== --> 
+                <!-- End Comment -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Messages -->
+                <!-- ============================================================== -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle waves-effect waves-dark" href="http://dev.button/admin/categories" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="font-24 mdi mdi-comment-processing"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown" aria-labelledby="2">
+                        <ul class="list-style-none">
+                            <li>
+                                <div class="">
+                                        <!-- Message -->
+                                    <a href="javascript:void(0)" class="link border-top">
+                                        <div class="d-flex no-block align-items-center p-10">
+                                            <span class="btn btn-success btn-circle"><i class="ti-calendar"></i></span>
+                                            <div class="m-l-10">
+                                                <h5 class="m-b-0">Event today</h5> 
+                                                <span class="mail-desc">Just a reminder that event</span> 
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <!-- Message -->
+                                    <a href="javascript:void(0)" class="link border-top">
+                                        <div class="d-flex no-block align-items-center p-10">
+                                            <span class="btn btn-info btn-circle"><i class="ti-settings"></i></span>
+                                            <div class="m-l-10">
+                                                <h5 class="m-b-0">Settings</h5> 
+                                                <span class="mail-desc">You can customize this template</span> 
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <!-- Message -->
+                                    <a href="javascript:void(0)" class="link border-top">
+                                        <div class="d-flex no-block align-items-center p-10">
+                                            <span class="btn btn-primary btn-circle"><i class="ti-user"></i></span>
+                                            <div class="m-l-10">
+                                                <h5 class="m-b-0">Pavan kumar</h5> 
+                                                <span class="mail-desc">Just see the my admin!</span> 
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <!-- Message -->
+                                    <a href="javascript:void(0)" class="link border-top">
+                                        <div class="d-flex no-block align-items-center p-10">
+                                            <span class="btn btn-danger btn-circle"><i class="fa fa-link"></i></span>
+                                            <div class="m-l-10">
+                                                <h5 class="m-b-0">Luanch Admin</h5> 
+                                                <span class="mail-desc">Just see the my new admin!</span> 
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- ============================================================== -->
+                <!-- End Messages -->
+                <!-- ============================================================== -->
+
+                <!-- ============================================================== -->
+                <!-- User profile and search -->
+                <!-- ============================================================== -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="http://dev.button/admin/categories" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="./Button_files/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+                    <div class="dropdown-menu dropdown-menu-right user-dd animated">
+                        <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
+                        <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
+                        <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i> Inbox</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="http://dev.button/admin/account_settings"><i class="ti-settings m-r-5 m-l-5"></i> Account Setting</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="http://dev.button/logout"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
+                        <div class="dropdown-divider"></div>
+                        <div class="p-l-30 p-10"><a href="javascript:void(0)" class="btn btn-sm btn-success btn-rounded">View Profile</a></div>
+                    </div>
+                </li>
+                <!-- ============================================================== -->
+                <!-- User profile and search -->
+                <!-- ============================================================== -->
+            </ul>
+        </div>
+    </nav>
+</header>
+<!-- ============================================================== -->
+<!-- End Topbar header -->
+<!-- ============================================================== --        <!-- ============================================================== -->
+<!-- Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->
+<aside class="left-sidebar" data-sidebarbg="skin5">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav" class="p-t-30 in">
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="http://dev.button/admin/dashboard" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Items </span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="http://dev.button/admin/items" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> List All Items </span></a></li>
+                        <li class="sidebar-item"><a href="http://dev.button/admin/items/add" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Create New Item </span></a></li>
+                    </ul>
+                </li>
+                <li class="sidebar-item selected"> <a class="sidebar-link has-arrow waves-effect waves-dark active" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Categories </span></a>
+                    <ul aria-expanded="false" class="collapse first-level in">
+                        <li class="sidebar-item active"><a href="http://dev.button/admin/categories" class="sidebar-link active"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> List All Catgories </span></a></li>
+                        <li class="sidebar-item"><a href="http://dev.button/admin/categories/add" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Create New Category </span></a></li>
+                    </ul>
+                </li>
+
+
+
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="http://dev.button/admin/charts.html" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Charts</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="http://dev.button/admin/widgets.html" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Widgets</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="http://dev.button/admin/tables.html" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Tables</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="http://dev.button/admin/grid.html" aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span class="hide-menu">Full Width</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Forms </span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="http://dev.button/admin/form-basic.html" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> Form Basic </span></a></li>
+                        <li class="sidebar-item"><a href="http://dev.button/admin/form-wizard.html" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Form Wizard </span></a></li>
+                    </ul>
+                </li>
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="http://dev.button/admin/pages-buttons.html" aria-expanded="false"><i class="mdi mdi-relative-scale"></i><span class="hide-menu">Buttons</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Icons </span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="http://dev.button/admin/icon-material.html" class="sidebar-link"><i class="mdi mdi-emoticon"></i><span class="hide-menu"> Material Icons </span></a></li>
+                        <li class="sidebar-item"><a href="http://dev.button/admin/icon-fontawesome.html" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Font Awesome Icons </span></a></li>
+                    </ul>
+                </li>
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="http://dev.button/admin/pages-elements.html" aria-expanded="false"><i class="mdi mdi-pencil"></i><span class="hide-menu">Elements</span></a></li>
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-move-resize-variant"></i><span class="hide-menu">Addons </span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="http://dev.button/admin/index2.html" class="sidebar-link"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu"> Dashboard-2 </span></a></li>
+                        <li class="sidebar-item"><a href="http://dev.button/admin/pages-gallery.html" class="sidebar-link"><i class="mdi mdi-multiplication-box"></i><span class="hide-menu"> Gallery </span></a></li>
+                        <li class="sidebar-item"><a href="http://dev.button/admin/pages-calendar.html" class="sidebar-link"><i class="mdi mdi-calendar-check"></i><span class="hide-menu"> Calendar </span></a></li>
+                        <li class="sidebar-item"><a href="http://dev.button/admin/pages-invoice.html" class="sidebar-link"><i class="mdi mdi-bulletin-board"></i><span class="hide-menu"> Invoice </span></a></li>
+                        <li class="sidebar-item"><a href="http://dev.button/admin/pages-chat.html" class="sidebar-link"><i class="mdi mdi-message-outline"></i><span class="hide-menu"> Chat Option </span></a></li>
+                    </ul>
+                </li>
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-key"></i><span class="hide-menu">Authentication </span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="http://dev.button/admin/authentication-login.html" class="sidebar-link"><i class="mdi mdi-all-inclusive"></i><span class="hide-menu"> Login </span></a></li>
+                        <li class="sidebar-item"><a href="http://dev.button/admin/authentication-register.html" class="sidebar-link"><i class="mdi mdi-all-inclusive"></i><span class="hide-menu"> Register </span></a></li>
+                    </ul>
+                </li>
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-alert"></i><span class="hide-menu">Errors </span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="http://dev.button/admin/error-403.html" class="sidebar-link"><i class="mdi mdi-alert-octagon"></i><span class="hide-menu"> Error 403 </span></a></li>
+                        <li class="sidebar-item"><a href="http://dev.button/admin/error-404.html" class="sidebar-link"><i class="mdi mdi-alert-octagon"></i><span class="hide-menu"> Error 404 </span></a></li>
+                        <li class="sidebar-item"><a href="http://dev.button/admin/error-405.html" class="sidebar-link"><i class="mdi mdi-alert-octagon"></i><span class="hide-menu"> Error 405 </span></a></li>
+                        <li class="sidebar-item"><a href="http://dev.button/admin/error-500.html" class="sidebar-link"><i class="mdi mdi-alert-octagon"></i><span class="hide-menu"> Error 500 </span></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
+</aside>
+<!-- ============================================================== -->
+<!-- End Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->        <div class="page-wrapper">
+                        <div class="page-breadcrumb">
+    <div class="row">
+        <div class="col-12 d-flex no-block align-items-center">
+                        <h4 class="page-title">Categories</h4>
+            <div class="ml-auto text-right">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item active"><a href="http://dev.button/admin/dashboard">Dashboard</a></li>
+                            <li class="breadcrumb-item" aria-current="page"><a href="http://dev.button/admin/categories">Categories</a></li>
+                                                                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+            
+            
+<div class="row">
+    <div class="col-md-12">
+        <br>
+        <a class="card-header link collapsed border-top filter-button collapsed grid-view-link" data-toggle="collapse" data-parent="#filter" href="http://dev.button/admin/categories#Toggle-filter" aria-expanded="false" aria-controls="Toggle-filter">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <span>Filter</span>
+        </a>
+        <a class="card-header link grid-view-link" data-toggle="modal" data-target="#settings_modal">
+            <i class="fas fa-cog" aria-hidden="true"></i>
+            <span>Settings</span>
+        </a>
+        <a class="card-header link grid-view-link" href="http://dev.button/admin/categories">
+            <i class="fas fa-times" aria-hidden="true"></i>
+            <span>Reset</span>
+        </a>
+        <div id="Toggle-filter" class="collapse multi-collapse ">
+            <div class="card-body widget-content filter-accordion-body">
+                <div class="card">
+                    <form class="form-horizontal" method="get" action="http://dev.button/admin/categories" name="filter_categories" id="filter_categories" novalidate="novalidate">
+                        <div class="card-body">
+                            <h5 class="card-title">Filter Categories</h5>
+                            <div class="row mb-3"> 
+                                                                                                                                                                                
+                                                                        <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label for="name_eq">Name</label>
+                                            <input type="text" id="name_eq" name="name_eq" class="form-control" value="">
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                                                                                                                        
+                                                                        <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label for="description_eq">Description</label>
+                                            <input type="text" id="description_eq" name="description_eq" class="form-control" value="">
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                                                                                                                                                                                                                                                                                                                                                                                                    
+                            </div>
+                                    
+                            <button type="submit" class="btn btn-success">Search</button>
+                            <a type="button" href="http://dev.button/admin/categories" class="btn btn-primary">Clear Search</a>
+                        </div>
+                    </form></div>
+                
+            </div>
+        </div>
+
+        <div id="settings_modal" class="fade modal show" style="padding-right: 15px; display: block;">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <!-- Header -->
+                    <div class="modal-header">
+                        <h2 class="modal-title">Settings</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <!-- Body -->
+                    <div class="modal-body">
+                        <h5>The Settings should have columns</h5>
+<ul>
+    <li>pagination (per_page, slider, simple - condensed</li>
+    <li> Settings for Export</li>
+    <li>Global Actions</li>
+    <li>Saved Settings</li>
+</ul>
+
+
+<form class="form-horizontal" method="post" action="http://dev.button/admin/settings/grid_settings/1" name="grid_settings" id="grid_settings" novalidate="novalidate"><input type="hidden" name="_token" value="kOqJtDZcKZ0c9JbDvcsHXaKTV9mKE0kWElW1AfoY">
+    <div class="grid-settings-accordion-button">
+        <a class="card-header link collapsed border collapsed" data-toggle="collapse" data-parent="#filter_settings" href="http://dev.button/admin/categories#Toggle-filter-settings" aria-expanded="false" aria-controls="Toggle-filter">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <span>Filter Settings</span>
+        </a>
+    </div>    
+    <div id="Toggle-filter-settings" class="collapse multi-collapse ">
+        <div class="card-body widget-content filter-settings-accordion-body">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title m-b-0">Filter Fields</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Active</th>
+                                <th scope="col">Label</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Condition</th>
+                            </tr>
+                        </thead>
+                        <tbody class="customtable">
+
+                                                                                            <tr>
+                                    <th>
+                                        <label class="customcheckbox">
+                                            <input type="checkbox" class="listCheckbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </th>
+                                    <td>Id</td>
+                                    <td>number</td>
+                                    <td>eq</td>
+                                </tr>                       
+                                                                                            <tr>
+                                    <th>
+                                        <label class="customcheckbox">
+                                            <input type="checkbox" class="listCheckbox" checked="">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </th>
+                                    <td>Name</td>
+                                    <td>text</td>
+                                    <td>eq</td>
+                                </tr>                       
+                                                                                            <tr>
+                                    <th>
+                                        <label class="customcheckbox">
+                                            <input type="checkbox" class="listCheckbox" checked="">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </th>
+                                    <td>Description</td>
+                                    <td>text</td>
+                                    <td>eq</td>
+                                </tr>                       
+                                                                                                                                                                <tr>
+                                    <th>
+                                        <label class="customcheckbox">
+                                            <input type="checkbox" class="listCheckbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </th>
+                                    <td>Status</td>
+                                    <td>flag</td>
+                                    <td>eq</td>
+                                </tr>                       
+                                                                                                                                                                <tr>
+                                    <th>
+                                        <label class="customcheckbox">
+                                            <input type="checkbox" class="listCheckbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </th>
+                                    <td>Created_at</td>
+                                    <td>text</td>
+                                    <td>eq</td>
+                                </tr>                       
+                                                                                            <tr>
+                                    <th>
+                                        <label class="customcheckbox">
+                                            <input type="checkbox" class="listCheckbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </th>
+                                    <td>Updated_at</td>
+                                    <td>text</td>
+                                    <td>eq</td>
+                                </tr>                       
+                                                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-settings-accordion-button">
+        <a class="card-header link border" data-toggle="collapse" data-parent="#grid_settings" href="http://dev.button/admin/categories#Toggle-grid-settings" aria-expanded="true" aria-controls="Toggle-filter">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <span>Grid Settings</span>
+        </a>
+    </div>    
+    <div id="Toggle-grid-settings" class="multi-collapse collapse show" style="">
+        <div class="card-body widget-content filter-settings-accordion-body">
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title m-b-0">Grid View Fields</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Active</th>
+                                <th scope="col">Label</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Sortable</th>
+                                <th scope="col">Options</th>
+                            </tr>
+                        </thead>
+                        <tbody class="customtable">
+
+                                                                                            <tr>
+                                    <th>
+                                        <label class="customcheckbox">
+                                            <input type="checkbox" class="listCheckbox" id="grid-active-id" name="grid-active-id">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </th>
+                                    <td>
+                                        <input type="text" class="form-control " id="grid-label-id" name="grid-label-id" placeholder="Field Label" value="Id">
+                                        
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control " id="grid-type-id" name="grid-type-id" placeholder="Field Type" value="number">
+                                        
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" class="listCheckbox" id="filter-sortable-id" name="grid-sortable-id" checked="">
+                                        <span class="checkmark"></span>
+                                    </td><td>no additional yet</td>
+                                </tr>                       
+                                                                                            <tr>
+                                    <th>
+                                        <label class="customcheckbox">
+                                            <input type="checkbox" class="listCheckbox" id="grid-active-name" name="grid-active-name" checked="">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </th>
+                                    <td>
+                                        <input type="text" class="form-control " id="grid-label-name" name="grid-label-name" placeholder="Field Label" value="Name">
+                                        
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control " id="grid-type-name" name="grid-type-name" placeholder="Field Type" value="text">
+                                        
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" class="listCheckbox" id="filter-sortable-name" name="grid-sortable-name" checked="">
+                                        <span class="checkmark"></span>
+                                    </td><td>no additional yet</td>
+                                </tr>                       
+                                                                                            <tr>
+                                    <th>
+                                        <label class="customcheckbox">
+                                            <input type="checkbox" class="listCheckbox" id="grid-active-description" name="grid-active-description" checked="">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </th>
+                                    <td>
+                                        <input type="text" class="form-control " id="grid-label-description" name="grid-label-description" placeholder="Field Label" value="Description">
+                                        
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control " id="grid-type-description" name="grid-type-description" placeholder="Field Type" value="text">
+                                        
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" class="listCheckbox" id="filter-sortable-description" name="grid-sortable-description" checked="">
+                                        <span class="checkmark"></span>
+                                    </td><td>no additional yet</td>
+                                </tr>                       
+                                                                                                                                                                <tr>
+                                    <th>
+                                        <label class="customcheckbox">
+                                            <input type="checkbox" class="listCheckbox" id="grid-active-status" name="grid-active-status" checked="">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </th>
+                                    <td>
+                                        <input type="text" class="form-control " id="grid-label-status" name="grid-label-status" placeholder="Field Label" value="Status">
+                                        
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control " id="grid-type-status" name="grid-type-status" placeholder="Field Type" value="flag">
+                                        
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" class="listCheckbox" id="filter-sortable-status" name="grid-sortable-status" checked="">
+                                        <span class="checkmark"></span>
+                                    </td><td>no additional yet</td>
+                                </tr>                       
+                                                                                                                                                                <tr>
+                                    <th>
+                                        <label class="customcheckbox">
+                                            <input type="checkbox" class="listCheckbox" id="grid-active-created_at" name="grid-active-created_at">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </th>
+                                    <td>
+                                        <input type="text" class="form-control " id="grid-label-created_at" name="grid-label-created_at" placeholder="Field Label" value="Created_at">
+                                        
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control " id="grid-type-created_at" name="grid-type-created_at" placeholder="Field Type" value="text">
+                                        
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" class="listCheckbox" id="filter-sortable-created_at" name="grid-sortable-created_at">
+                                        <span class="checkmark"></span>
+                                    </td><td>no additional yet</td>
+                                </tr>                       
+                                                                                            <tr>
+                                    <th>
+                                        <label class="customcheckbox">
+                                            <input type="checkbox" class="listCheckbox" id="grid-active-updated_at" name="grid-active-updated_at">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </th>
+                                    <td>
+                                        <input type="text" class="form-control " id="grid-label-updated_at" name="grid-label-updated_at" placeholder="Field Label" value="Updated_at">
+                                        
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control " id="grid-type-updated_at" name="grid-type-updated_at" placeholder="Field Type" value="text">
+                                        
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" class="listCheckbox" id="filter-sortable-updated_at" name="grid-sortable-updated_at">
+                                        <span class="checkmark"></span>
+                                    </td><td>no additional yet</td>
+                                </tr>                       
+                                                    </tbody>
+                    </table>
+                    <h6 class="card-title m-b-0">Grid Actions</h6><table class="table">
+                        
+                        <tbody class="customtable">
+                            <tr>
+                                                                    <td scope="col">
+                                        <label class="customcheckbox">
+                                            <input type="checkbox" class="listCheckbox" checked="">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        View
+                                    </td>
+                                                                    <td scope="col">
+                                        <label class="customcheckbox">
+                                            <input type="checkbox" class="listCheckbox" checked="">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        Edit
+                                    </td>
+                                                                    <td scope="col">
+                                        <label class="customcheckbox">
+                                            <input type="checkbox" class="listCheckbox" checked="">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        Delete
+                                    </td>
+                                                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="col-md-6">
+                                                    <label class="customcheckbox col-md-4">
+                                Include Image
+                            </label>
+                            <input type="checkbox" class="listCheckbox col-md-2">
+                                <span class="checkmark"></span>
+                                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="border-top">
+        <div class="card-body">
+            <button type="submit" class="btn btn-primary">Save Settings</button>
+        </div>
+    </div>
+</form>
+                        
+                    </div>
+                    <!-- Footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title m-b-0 float-sm-left">Categories List</h5>
+                    <nav class="float-sm-right">
+        
+        <ul class="pagination">
+        
+                    <li class="page-item disabled"><span class="page-link">«</span></li>
+        
+        
+                    
+            
+            
+                                                                        <li class="page-item active"><span class="page-link">1</span></li>
+                                                                                <li class="page-item"><a class="page-link" href="http://dev.button/admin/categories?page=2">2</a></li>
+                                                                                <li class="page-item"><a class="page-link" href="http://dev.button/admin/categories?page=3">3</a></li>
+                                                                                <li class="page-item"><a class="page-link" href="http://dev.button/admin/categories?page=4">4</a></li>
+                                                                                <li class="page-item"><a class="page-link" href="http://dev.button/admin/categories?page=5">5</a></li>
+                                                                                <li class="page-item"><a class="page-link" href="http://dev.button/admin/categories?page=6">6</a></li>
+                                                                                <li class="page-item"><a class="page-link" href="http://dev.button/admin/categories?page=7">7</a></li>
+                                                        
+        
+                    <li class="page-item"><a class="page-link" href="http://dev.button/admin/categories?page=2" rel="next">»</a></li>
+            </ul>
+
+    </nav>
+                </div>
+                <table class="table">
+    <thead>
+    <tr>
+                                                             
+                <th title="Sort by clicking" scope="col"><a href="http://dev.button/admin/categories?sort=name&amp;order=asc">Name</a> <i class="fa fa-sort"></i></th>
+                                             
+                <th title="Sort by clicking" scope="col"><a href="http://dev.button/admin/categories?sort=description&amp;order=asc">Description</a> <i class="fa fa-sort"></i></th>
+                                                                         
+                <th title="Sort by clicking" scope="col"><a href="http://dev.button/admin/categories?sort=status&amp;order=asc">Status</a> <i class="fa fa-sort"></i></th>
+                                                                             
+                    <th scope="col"><b>Actions</b></th>
+         
+            
+    </tr>
+</thead>    <tbody>
+            <tr>
+                             
+                                                
+                                
+                                    <td>Odit rerum modi voluptates.</td>
+                                
+                                        
+                                
+                                    <td>Libero adipisci et quia qui minus. Non omnis explicabo praesentium dolor facere quos.</td>
+                                
+                             
+                                                
+                                    <td class="text-success">
+                        yes
+                         
+                                                        <a href="http://dev.button/admin/categories/activate/1/0" data-toggle="tooltip" data-placement="top" title="" data-original-title="Deactivate">
+                                <i class="mdi mdi-close"></i>
+                            </a>
+                                                                        </td>
+                                
+                                
+                             
+                                     
+                    
+                            <td>
+                                                                        <a href="http://dev.button/admin/categories/view/1" data-toggle="tooltip" data-placement="top" title="" data-original-title="View">
+                                <i class="fas fa-eye"></i>  
+                            </a>
+                                                                                                <a href="http://dev.button/admin/categories/edit/1" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
+                                <i class="fas fa-pencil-alt"></i>  
+                            </a>
+                                                                                                <a href="http://dev.button/admin/categories/delete/1" data-toggle="tooltip" data-placement="top" onclick="&quot;return" confirm(&#039;are="" you="" sure?&#039;)&quot;="" title="" data-original-title="Delete">
+                                <i class="fas fa-trash"></i>  
+                            </a>
+                                                            </td>
+                                </tr>
+
+            <tr>
+                             
+                                                
+                                
+                                    <td>Eum officiis sapiente aut.</td>
+                                
+                                        
+                                
+                                    <td>Ut et dicta aut expedita quis. Quod adipisci magni ullam in.</td>
+                                
+                             
+                                                
+                                    <td class="text-success">
+                        yes
+                         
+                                                        <a href="http://dev.button/admin/categories/activate/2/0" data-toggle="tooltip" data-placement="top" title="" data-original-title="Deactivate">
+                                <i class="mdi mdi-close"></i>
+                            </a>
+                                                                        </td>
+                                
+                                
+                             
+                                     
+                    
+                            <td>
+                                                                        <a href="http://dev.button/admin/categories/view/2" data-toggle="tooltip" data-placement="top" title="" data-original-title="View">
+                                <i class="fas fa-eye"></i>  
+                            </a>
+                                                                                                <a href="http://dev.button/admin/categories/edit/2" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
+                                <i class="fas fa-pencil-alt"></i>  
+                            </a>
+                                                                                                <a href="http://dev.button/admin/categories/delete/2" data-toggle="tooltip" data-placement="top" onclick="&quot;return" confirm(&#039;are="" you="" sure?&#039;)&quot;="" title="" data-original-title="Delete">
+                                <i class="fas fa-trash"></i>  
+                            </a>
+                                                            </td>
+                                </tr>
+
+            <tr>
+                             
+                                                
+                                
+                                    <td>Debitis corrupti quia deleniti.</td>
+                                
+                                        
+                                
+                                    <td>Esse voluptatem voluptates repellendus et. Ut beatae natus deserunt aut quaerat iste quo.</td>
+                                
+                             
+                                                
+                                    <td class="text-success">
+                        yes
+                         
+                                                        <a href="http://dev.button/admin/categories/activate/3/0" data-toggle="tooltip" data-placement="top" title="" data-original-title="Deactivate">
+                                <i class="mdi mdi-close"></i>
+                            </a>
+                                                                        </td>
+                                
+                                
+                             
+                                     
+                    
+                            <td>
+                                                                        <a href="http://dev.button/admin/categories/view/3" data-toggle="tooltip" data-placement="top" title="" data-original-title="View">
+                                <i class="fas fa-eye"></i>  
+                            </a>
+                                                                                                <a href="http://dev.button/admin/categories/edit/3" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
+                                <i class="fas fa-pencil-alt"></i>  
+                            </a>
+                                                                                                <a href="http://dev.button/admin/categories/delete/3" data-toggle="tooltip" data-placement="top" onclick="&quot;return" confirm(&#039;are="" you="" sure?&#039;)&quot;="" title="" data-original-title="Delete">
+                                <i class="fas fa-trash"></i>  
+                            </a>
+                                                            </td>
+                                </tr>
+
+            <tr>
+                             
+                                                
+                                
+                                    <td>Nihil ut et quod.</td>
+                                
+                                        
+                                
+                                    <td>Doloremque molestiae sed eaque repellendus.</td>
+                                
+                             
+                                                
+                                    <td class="text-danger">
+                        no
+                         
+                                                        <a href="http://dev.button/admin/categories/activate/4/1" data-toggle="tooltip" data-placement="top" title="" data-original-title="Activate">
+                                <i class="mdi mdi-check"></i>
+                            </a>
+                                                                        </td>
+                                
+                                
+                             
+                                     
+                    
+                            <td>
+                                                                        <a href="http://dev.button/admin/categories/view/4" data-toggle="tooltip" data-placement="top" title="" data-original-title="View">
+                                <i class="fas fa-eye"></i>  
+                            </a>
+                                                                                                <a href="http://dev.button/admin/categories/edit/4" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
+                                <i class="fas fa-pencil-alt"></i>  
+                            </a>
+                                                                                                <a href="http://dev.button/admin/categories/delete/4" data-toggle="tooltip" data-placement="top" onclick="&quot;return" confirm(&#039;are="" you="" sure?&#039;)&quot;="" title="" data-original-title="Delete">
+                                <i class="fas fa-trash"></i>  
+                            </a>
+                                                            </td>
+                                </tr>
+
+            <tr>
+                             
+                                                
+                                
+                                    <td>Dolorem in labore.</td>
+                                
+                                        
+                                
+                                    <td>Accusamus earum quam et quia voluptate.</td>
+                                
+                             
+                                                
+                                    <td class="text-success">
+                        yes
+                         
+                                                        <a href="http://dev.button/admin/categories/activate/5/0" data-toggle="tooltip" data-placement="top" title="" data-original-title="Deactivate">
+                                <i class="mdi mdi-close"></i>
+                            </a>
+                                                                        </td>
+                                
+                                
+                             
+                                     
+                    
+                            <td>
+                                                                        <a href="http://dev.button/admin/categories/view/5" data-toggle="tooltip" data-placement="top" title="" data-original-title="View">
+                                <i class="fas fa-eye"></i>  
+                            </a>
+                                                                                                <a href="http://dev.button/admin/categories/edit/5" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
+                                <i class="fas fa-pencil-alt"></i>  
+                            </a>
+                                                                                                <a href="http://dev.button/admin/categories/delete/5" data-toggle="tooltip" data-placement="top" onclick="&quot;return" confirm(&#039;are="" you="" sure?&#039;)&quot;="" title="" data-original-title="Delete">
+                                <i class="fas fa-trash"></i>  
+                            </a>
+                                                            </td>
+                                </tr>
+
+            <tr>
+                             
+                                                
+                                
+                                    <td>Non soluta delectus tempore.</td>
+                                
+                                        
+                                
+                                    <td>Dolores sit ratione ipsum sed cum distinctio deleniti.</td>
+                                
+                             
+                                                
+                                    <td class="text-danger">
+                        no
+                         
+                                                        <a href="http://dev.button/admin/categories/activate/6/1" data-toggle="tooltip" data-placement="top" title="" data-original-title="Activate">
+                                <i class="mdi mdi-check"></i>
+                            </a>
+                                                                        </td>
+                                
+                                
+                             
+                                     
+                    
+                            <td>
+                                                                        <a href="http://dev.button/admin/categories/view/6" data-toggle="tooltip" data-placement="top" title="" data-original-title="View">
+                                <i class="fas fa-eye"></i>  
+                            </a>
+                                                                                                <a href="http://dev.button/admin/categories/edit/6" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
+                                <i class="fas fa-pencil-alt"></i>  
+                            </a>
+                                                                                                <a href="http://dev.button/admin/categories/delete/6" data-toggle="tooltip" data-placement="top" onclick="&quot;return" confirm(&#039;are="" you="" sure?&#039;)&quot;="" title="" data-original-title="Delete">
+                                <i class="fas fa-trash"></i>  
+                            </a>
+                                                            </td>
+                                </tr>
+
+            <tr>
+                             
+                                                
+                                
+                                    <td>Eligendi quasi distinctio cum.</td>
+                                
+                                        
+                                
+                                    <td>Rerum accusamus quibusdam animi error impedit reprehenderit. Assumenda quia vero rem totam quis placeat est.</td>
+                                
+                             
+                                                
+                                    <td class="text-success">
+                        yes
+                         
+                                                        <a href="http://dev.button/admin/categories/activate/7/0" data-toggle="tooltip" data-placement="top" title="" data-original-title="Deactivate">
+                                <i class="mdi mdi-close"></i>
+                            </a>
+                                                                        </td>
+                                
+                                
+                             
+                                     
+                    
+                            <td>
+                                                                        <a href="http://dev.button/admin/categories/view/7" data-toggle="tooltip" data-placement="top" title="" data-original-title="View">
+                                <i class="fas fa-eye"></i>  
+                            </a>
+                                                                                                <a href="http://dev.button/admin/categories/edit/7" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
+                                <i class="fas fa-pencil-alt"></i>  
+                            </a>
+                                                                                                <a href="http://dev.button/admin/categories/delete/7" data-toggle="tooltip" data-placement="top" onclick="&quot;return" confirm(&#039;are="" you="" sure?&#039;)&quot;="" title="" data-original-title="Delete">
+                                <i class="fas fa-trash"></i>  
+                            </a>
+                                                            </td>
+                                </tr>
+
+            <tr>
+                             
+                                                
+                                
+                                    <td>Dignissimos ipsam beatae cum.</td>
+                                
+                                        
+                                
+                                    <td>Nulla saepe sint esse perferendis qui. Nihil voluptatem iure quaerat incidunt.</td>
+                                
+                             
+                                                
+                                    <td class="text-danger">
+                        no
+                         
+                                                        <a href="http://dev.button/admin/categories/activate/8/1" data-toggle="tooltip" data-placement="top" title="" data-original-title="Activate">
+                                <i class="mdi mdi-check"></i>
+                            </a>
+                                                                        </td>
+                                
+                                
+                             
+                                     
+                    
+                            <td>
+                                                                        <a href="http://dev.button/admin/categories/view/8" data-toggle="tooltip" data-placement="top" title="" data-original-title="View">
+                                <i class="fas fa-eye"></i>  
+                            </a>
+                                                                                                <a href="http://dev.button/admin/categories/edit/8" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
+                                <i class="fas fa-pencil-alt"></i>  
+                            </a>
+                                                                                                <a href="http://dev.button/admin/categories/delete/8" data-toggle="tooltip" data-placement="top" onclick="&quot;return" confirm(&#039;are="" you="" sure?&#039;)&quot;="" title="" data-original-title="Delete">
+                                <i class="fas fa-trash"></i>  
+                            </a>
+                                                            </td>
+                                </tr>
+
+            <tr>
+                             
+                                                
+                                
+                                    <td>Nobis quasi consectetur.</td>
+                                
+                                        
+                                
+                                    <td>Aspernatur perferendis odit cupiditate sint et.</td>
+                                
+                             
+                                                
+                                    <td class="text-danger">
+                        no
+                         
+                                                        <a href="http://dev.button/admin/categories/activate/9/1" data-toggle="tooltip" data-placement="top" title="" data-original-title="Activate">
+                                <i class="mdi mdi-check"></i>
+                            </a>
+                                                                        </td>
+                                
+                                
+                             
+                                     
+                    
+                            <td>
+                                                                        <a href="http://dev.button/admin/categories/view/9" data-toggle="tooltip" data-placement="top" title="" data-original-title="View">
+                                <i class="fas fa-eye"></i>  
+                            </a>
+                                                                                                <a href="http://dev.button/admin/categories/edit/9" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
+                                <i class="fas fa-pencil-alt"></i>  
+                            </a>
+                                                                                                <a href="http://dev.button/admin/categories/delete/9" data-toggle="tooltip" data-placement="top" onclick="&quot;return" confirm(&#039;are="" you="" sure?&#039;)&quot;="" title="" data-original-title="Delete">
+                                <i class="fas fa-trash"></i>  
+                            </a>
+                                                            </td>
+                                </tr>
+
+            <tr>
+                             
+                                                
+                                
+                                    <td>Quod ut numquam.</td>
+                                
+                                        
+                                
+                                    <td>Et commodi dolorem autem tempore repellat omnis facilis.</td>
+                                
+                             
+                                                
+                                    <td class="text-danger">
+                        no
+                         
+                                                        <a href="http://dev.button/admin/categories/activate/10/1" data-toggle="tooltip" data-placement="top" title="" data-original-title="Activate">
+                                <i class="mdi mdi-check"></i>
+                            </a>
+                                                                        </td>
+                                
+                                
+                             
+                                     
+                    
+                            <td>
+                                                                        <a href="http://dev.button/admin/categories/view/10" data-toggle="tooltip" data-placement="top" title="" data-original-title="View">
+                                <i class="fas fa-eye"></i>  
+                            </a>
+                                                                                                <a href="http://dev.button/admin/categories/edit/10" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
+                                <i class="fas fa-pencil-alt"></i>  
+                            </a>
+                                                                                                <a href="http://dev.button/admin/categories/delete/10" data-toggle="tooltip" data-placement="top" onclick="&quot;return" confirm(&#039;are="" you="" sure?&#039;)&quot;="" title="" data-original-title="Delete">
+                                <i class="fas fa-trash"></i>  
+                            </a>
+                                                            </td>
+                                </tr>
+
+            <tr>
+                             
+                                                
+                                
+                                    <td>Quod est qui consectetur quas.</td>
+                                
+                                        
+                                
+                                    <td>Et unde vitae dolores labore voluptas cupiditate. Ad consequatur molestiae architecto.</td>
+                                
+                             
+                                                
+                                    <td class="text-danger">
+                        no
+                         
+                                                        <a href="http://dev.button/admin/categories/activate/11/1" data-toggle="tooltip" data-placement="top" title="" data-original-title="Activate">
+                                <i class="mdi mdi-check"></i>
+                            </a>
+                                                                        </td>
+                                
+                                
+                             
+                                     
+                    
+                            <td>
+                                                                        <a href="http://dev.button/admin/categories/view/11" data-toggle="tooltip" data-placement="top" title="" data-original-title="View">
+                                <i class="fas fa-eye"></i>  
+                            </a>
+                                                                                                <a href="http://dev.button/admin/categories/edit/11" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
+                                <i class="fas fa-pencil-alt"></i>  
+                            </a>
+                                                                                                <a href="http://dev.button/admin/categories/delete/11" data-toggle="tooltip" data-placement="top" onclick="&quot;return" confirm(&#039;are="" you="" sure?&#039;)&quot;="" title="" data-original-title="Delete">
+                                <i class="fas fa-trash"></i>  
+                            </a>
+                                                            </td>
+                                </tr>
+
+            <tr>
+                             
+                                                
+                                
+                                    <td>Aut beatae id dolorum.</td>
+                                
+                                        
+                                
+                                    <td>Asperiores velit voluptatibus est adipisci fuga sed dolor. Est debitis consequatur et quos et et.</td>
+                                
+                             
+                                                
+                                    <td class="text-danger">
+                        no
+                         
+                                                        <a href="http://dev.button/admin/categories/activate/12/1" data-toggle="tooltip" data-placement="top" title="" data-original-title="Activate">
+                                <i class="mdi mdi-check"></i>
+                            </a>
+                                                                        </td>
+                                
+                                
+                             
+                                     
+                    
+                            <td>
+                                                                        <a href="http://dev.button/admin/categories/view/12" data-toggle="tooltip" data-placement="top" title="" data-original-title="View">
+                                <i class="fas fa-eye"></i>  
+                            </a>
+                                                                                                <a href="http://dev.button/admin/categories/edit/12" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
+                                <i class="fas fa-pencil-alt"></i>  
+                            </a>
+                                                                                                <a href="http://dev.button/admin/categories/delete/12" data-toggle="tooltip" data-placement="top" onclick="&quot;return" confirm(&#039;are="" you="" sure?&#039;)&quot;="" title="" data-original-title="Delete">
+                                <i class="fas fa-trash"></i>  
+                            </a>
+                                                            </td>
+                                </tr>
+
+            <tr>
+                             
+                                                
+                                
+                                    <td>Quas vero ut adipisci.</td>
+                                
+                                        
+                                
+                                    <td>Ut dolor ipsum assumenda ut dolor consequatur illum.</td>
+                                
+                             
+                                                
+                                    <td class="text-danger">
+                        no
+                         
+                                                        <a href="http://dev.button/admin/categories/activate/13/1" data-toggle="tooltip" data-placement="top" title="" data-original-title="Activate">
+                                <i class="mdi mdi-check"></i>
+                            </a>
+                                                                        </td>
+                                
+                                
+                             
+                                     
+                    
+                            <td>
+                                                                        <a href="http://dev.button/admin/categories/view/13" data-toggle="tooltip" data-placement="top" title="" data-original-title="View">
+                                <i class="fas fa-eye"></i>  
+                            </a>
+                                                                                                <a href="http://dev.button/admin/categories/edit/13" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
+                                <i class="fas fa-pencil-alt"></i>  
+                            </a>
+                                                                                                <a href="http://dev.button/admin/categories/delete/13" data-toggle="tooltip" data-placement="top" onclick="&quot;return" confirm(&#039;are="" you="" sure?&#039;)&quot;="" title="" data-original-title="Delete">
+                                <i class="fas fa-trash"></i>  
+                            </a>
+                                                            </td>
+                                </tr>
+
+            <tr>
+                             
+                                                
+                                
+                                    <td>Assumenda sunt fugit ut.</td>
+                                
+                                        
+                                
+                                    <td>Officiis illum veritatis temporibus et vero laborum id.</td>
+                                
+                             
+                                                
+                                    <td class="text-danger">
+                        no
+                         
+                                                        <a href="http://dev.button/admin/categories/activate/14/1" data-toggle="tooltip" data-placement="top" title="" data-original-title="Activate">
+                                <i class="mdi mdi-check"></i>
+                            </a>
+                                                                        </td>
+                                
+                                
+                             
+                                     
+                    
+                            <td>
+                                                                        <a href="http://dev.button/admin/categories/view/14" data-toggle="tooltip" data-placement="top" title="" data-original-title="View">
+                                <i class="fas fa-eye"></i>  
+                            </a>
+                                                                                                <a href="http://dev.button/admin/categories/edit/14" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
+                                <i class="fas fa-pencil-alt"></i>  
+                            </a>
+                                                                                                <a href="http://dev.button/admin/categories/delete/14" data-toggle="tooltip" data-placement="top" onclick="&quot;return" confirm(&#039;are="" you="" sure?&#039;)&quot;="" title="" data-original-title="Delete">
+                                <i class="fas fa-trash"></i>  
+                            </a>
+                                                            </td>
+                                </tr>
+
+            <tr>
+                             
+                                                
+                                
+                                    <td>Ipsa et.</td>
+                                
+                                        
+                                
+                                    <td>Aliquam eum esse atque vel placeat eveniet cumque.</td>
+                                
+                             
+                                                
+                                    <td class="text-danger">
+                        no
+                         
+                                                        <a href="http://dev.button/admin/categories/activate/15/1" data-toggle="tooltip" data-placement="top" title="" data-original-title="Activate">
+                                <i class="mdi mdi-check"></i>
+                            </a>
+                                                                        </td>
+                                
+                                
+                             
+                                     
+                    
+                            <td>
+                                                                        <a href="http://dev.button/admin/categories/view/15" data-toggle="tooltip" data-placement="top" title="" data-original-title="View">
+                                <i class="fas fa-eye"></i>  
+                            </a>
+                                                                                                <a href="http://dev.button/admin/categories/edit/15" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
+                                <i class="fas fa-pencil-alt"></i>  
+                            </a>
+                                                                                                <a href="http://dev.button/admin/categories/delete/15" data-toggle="tooltip" data-placement="top" onclick="&quot;return" confirm(&#039;are="" you="" sure?&#039;)&quot;="" title="" data-original-title="Delete">
+                                <i class="fas fa-trash"></i>  
+                            </a>
+                                                            </td>
+                                </tr>
+
+    </tbody>
+
+
+
+
+
+
+</table>                <div class="card-body">
+        <div class="col-sm-5 result-info" style="display:inline-block;">
+            Showing  1 to  15 of 100 entries
+        </div>
+    <nav class="float-sm-right">
+        
+        <ul class="pagination">
+        
+                    <li class="page-item disabled"><span class="page-link">«</span></li>
+        
+        
+                    
+            
+            
+                                                                        <li class="page-item active"><span class="page-link">1</span></li>
+                                                                                <li class="page-item"><a class="page-link" href="http://dev.button/admin/categories?page=2">2</a></li>
+                                                                                <li class="page-item"><a class="page-link" href="http://dev.button/admin/categories?page=3">3</a></li>
+                                                                                <li class="page-item"><a class="page-link" href="http://dev.button/admin/categories?page=4">4</a></li>
+                                                                                <li class="page-item"><a class="page-link" href="http://dev.button/admin/categories?page=5">5</a></li>
+                                                                                <li class="page-item"><a class="page-link" href="http://dev.button/admin/categories?page=6">6</a></li>
+                                                                                <li class="page-item"><a class="page-link" href="http://dev.button/admin/categories?page=7">7</a></li>
+                                                        
+        
+                    <li class="page-item"><a class="page-link" href="http://dev.button/admin/categories?page=2" rel="next">»</a></li>
+            </ul>
+
+    </nav>
+    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+            <!-- ============================================================== -->
+<!-- footer -->
+<!-- ============================================================== -->
+<footer class="footer text-center">
+    All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com/">WrapPixel</a>.
+</footer>
+<!-- ============================================================== -->
+<!-- End footer -->
+<!-- ============================================================== -->        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="./Button_files/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="./Button_files/popper.min.js"></script>
+    <script src="./Button_files/bootstrap.min.js"></script>
+    <script src="./Button_files/perfect-scrollbar.jquery.min.js"></script>
+    <script src="./Button_files/sparkline.js"></script>
+    <!--Wave Effects -->
+    <script src="./Button_files/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="./Button_files/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="./Button_files/custom.min.js"></script>
+    <!--This page JavaScript -->
+    <!-- <script src="http://dev.button/../js/backend_js/pages/dashboards/dashboard1.js&quot;&gt;&lt;script> -->
+    <!-- Charts js Files -->
+    <script src="./Button_files/excanvas.js"></script>
+    <script src="./Button_files/jquery.flot.js"></script>
+    <script src="./Button_files/jquery.flot.pie.js"></script>
+    <script src="./Button_files/jquery.flot.time.js"></script>
+    <script src="./Button_files/jquery.flot.stack.js"></script>
+    <script src="./Button_files/jquery.flot.crosshair.js"></script>
+    <script src="./Button_files/jquery.flot.tooltip.min.js"></script>
+    <script src="./Button_files/chart-page-init.js"></script>
+    <script src="./Button_files/bootstrap-datepicker.min.js"></script>
+    
+    <script>    
+        /*datwpicker*/
+        jQuery('.mydatepicker').datepicker();
+        jQuery('#datepicker-autoclose').datepicker({
+            autoclose: true,
+            todayHighlight: true
+        });
+        var quill = new Quill('#editor', {
+            theme: 'snow'
+        });
+
+    </script>
+
+
+
+<div class="flotTip" style="display: none; position: absolute;"></div><div class="modal-backdrop fade show"></div></body></html>
