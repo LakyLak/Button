@@ -16,7 +16,6 @@
         $result_to = $total;
     } 
 ?>
-<?php Log::info("data\n" . print_r($data, true)); ?>
 @if ($result_info)
     <div class="card-body">
         <div class="col-sm-5 result-info" style="display:inline-block;">
@@ -25,7 +24,7 @@
 @endif
 @if ($pages > 1)
     <nav class="float-sm-right">
-        <ul class="pagination">
+        {{-- <ul class="pagination">
         <li class="page-item">
                 <a href="{{ url($path.'?page=1') }}" class="page-link" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
@@ -46,7 +45,8 @@
                     <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>
-        </ul>
+        </ul> --}}
+        {{ $items->appends(Request::except('pages'))->links() }}
     </nav>
 @endif
 @if ($result_info)

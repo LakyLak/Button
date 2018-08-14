@@ -57,11 +57,9 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="el-card-item">
-                                {{-- <div class="el-card-avatar el-overlay-1"> <img src="{{ URL::asset('../backend/assets/images/big/img1.jpg') }}" alt="user" /> --}}
                                 <div class="el-card-avatar el-overlay-1"> <img src="{{ URL::asset('../backend/assets/images/empty-image.png') }}" alt="user" />
                                     <div class="el-overlay">
                                         <ul class="list-style-none el-info">
-                                            {{-- <li class="el-item"><a class="btn default btn-outline image-popup-vertical-fit el-link" href="../backend/assets/images/big/img1.jpg"><i class="mdi mdi-magnify-plus"></i></a></li> --}}
                                             <li class="el-item"><a class="btn default btn-outline el-link" href="javascript:void(0);"><i class="mdi mdi-link"></i></a></li>
                                         </ul>
                                     </div>

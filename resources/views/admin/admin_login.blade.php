@@ -41,6 +41,7 @@
         <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark">
             <div class="auth-box bg-dark border-top border-secondary">
                 <div id="loginform">
+                    {{-- <h6>TEST {{ Auth::user()->name }}</h6> --}}
                     @if(Session::has('flash_error_message'))
                         <div class="alert alert-danger alert-block">
                             <button type="button" class="close" data-dismiss="alert">×</button>	

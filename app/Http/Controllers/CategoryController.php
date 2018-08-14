@@ -4,67 +4,44 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use Schema;
+use Log;
+// use App\Http\Traits\SettingsTrait;
+use App\Services\AdminGridSettingsService;
 
 class CategoryController extends Controller
 {
+    // use SettingsTrait;
+
     public function index(Request $request) 
-    {
-        $filter_fields = [
-            [
-                'form_name' => 'name_like',
-                'label' => 'Name',
-                'type' => 'text'
-            ],
-            [
-                'form_name' => 'description_like',
-                'label' => 'Description',
-                'type' => 'text'
-            ],
-            [
-                'form_name' => 'created_at_gte',
-                'label' => 'Created From',
-                'type' => 'datepicker'
-            ],
-            [
-                'form_name' => 'created_at_lte',
-                'label' => 'Created To',
-                'type' => 'datepicker'
-            ]
-        ];
-        // $simple_pagination = true;
-        $per_page = 3;
+    {       
+        $table = 'categories';
 
-        // echo '<pre>'; print_r($request->all()); die;    
+        $service = new AdminGridSettingsService();
+        
+        $data = $service->getData($table);
+        // Log::info("data Categories controller\n" . print_r($data, true));
 
-        $data['pagination']['per_page'] = $per_page;
         $data['pagination']['current_page'] = $request->page;
-        $filter_data = [];
-        $total = Category::count();
-        $categories = Category::paginate($per_page);
+        $data['filter']['filter_data'] = $request->except('page', 'sort', 'order');
+
         
-        if ($request->isMethod('post')) {
-            $filter_data = $request->all();
-            
-            $data['filter']['filter_data'] = $filter_data;
-            
-            $conditions = filter_conditions($filter_data);
-            $total = Category::where($conditions)->count();
-            $categories = Category::where($conditions)->paginate($per_page);
-        }
-        $data['pagination']['total'] = $total;
-        
-        return view('admin.categories.index', compact(['categories', 'filter_data', 'filter_fields', 'data']));
+        $conditions = filter_conditions($data['filter']['filter_data']);
+        $data['pagination']['total'] = Category::where($conditions)->count();
+        $items = Category::where($conditions)->sortable()->paginate($data['pagination']['per_page']);
+
+        return view('admin.categories.index', compact(['items', 'data']));
     }
 
-    public function change_status($id, $status)
+    public function activate($id, $status)
     {
         $category = Category::find($id);
         if ($status != $category->status) {
             $category->status = $status;
             $category->save();
 
-            return redirect()->back();
         }
+        return redirect()->back();
     }
     
     public function add(Request $request)
@@ -92,7 +69,6 @@ class CategoryController extends Controller
         return view('admin.categories.add');
     }
 
-    // TODO edit action & view
     public function edit(Request $request)
     {
         $category = Category::find($request->id);

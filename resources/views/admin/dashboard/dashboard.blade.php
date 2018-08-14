@@ -8,26 +8,6 @@
         <!-- ============================================================== -->
         <!-- Sales Cards  -->
         <!-- ============================================================== -->
-        @if(Session::has('flash_error_message'))
-            <div class="row">
-                <div class="col-12">
-                    <div class="alert alert-danger alert-block">
-                        <button type="button" class="close" data-dismiss="alert">×</button>	
-                            <strong>{!! session('flash_error_message') !!}</strong>
-                    </div>
-                </div>
-            </div>
-            @endif
-        @if(Session::has('flash_success_message'))
-            <div class="row">
-                <div class="col-12">
-                    <div class="alert alert-success alert-block">
-                        <button type="button" class="close" data-dismiss="alert">×</button>	
-                        <strong>{!! session('flash_success_message') !!}</strong>
-                    </div>
-                </div>
-            </div>
-        @endif
         <div class="row">
             <!-- Column -->
             <div class="col-md-6 col-lg-2 col-xlg-3">
