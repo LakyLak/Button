@@ -10,10 +10,8 @@ use App\Services\AdminGridSettingsService;
 
 class AdminGridSettingsController extends Controller
 {
-    public function grid_settings(Request $request)
+    public function grid_view_settings(Request $request)
     {
-        // echo '<pre>'; print_r($request->all()); die;
-
         $grid = $filter = $pagination = $export = $global_actions = null;
 
         $service = new AdminGridSettingsService();
@@ -54,7 +52,6 @@ class AdminGridSettingsController extends Controller
                     unset($grid['fields'][$field][$field_action]);
                 }
             }
-
         }
 
         foreach ($grid['fields'] as &$field) {

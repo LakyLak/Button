@@ -82,6 +82,6 @@
             </div>
         </div>
 
-        @include('admin.includes.settings')
+        @include('admin.includes.settings.settings')
     </div>
 </div>
