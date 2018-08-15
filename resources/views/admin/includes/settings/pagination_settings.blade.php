@@ -10,5 +10,10 @@
     <div id="Toggle-pagination-settings" class="collapse multi-collapse">
         <div class="card-body widget-content pagination-settings-accordion-body">
             Pagination Settings
+            <ul>
+                <li>per_page</li>
+                <li>slider</li>
+                <li>simple - condensed</li>
+            </ul>
         </div>
     </div>

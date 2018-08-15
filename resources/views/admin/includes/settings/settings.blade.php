@@ -24,23 +24,16 @@
             </div>
             <!-- Body -->
             <div class="modal-body">
-                <h5>The Settings should have columns</h5>
-                <ul>
-                    <li>pagination (per_page, slider, simple - condensed</li>
-                    <li> Settings for Export</li>
-                    <li>Global Actions</li>
-                    <li>Saved Settings</li>
-                </ul>
-
-                <form class="form-horizontal" method="post" action="{{ url('/admin/settings/grid_view_settings/'. $id   ) }}" 
+                <h5>Choose settings type</h5>
+                <form id="settings-form" class="form-horizontal" method="post" action="{{ url('/admin/settings/grid_view_settings/'. $id   ) }}" 
                     name="grid_settings" id="grid_settings" novalidate="novalidate">{{ csrf_field() }}
                     <input type="hidden" name="id" value="{{ $id }}">
                     <input type="hidden" name="model" value="{{ $model }}">
                     {{-- @include('admin.includes.settings.filter_settings') --}}
                     @include('admin.includes.settings.grid_settings')
-                    @include('admin.includes.settings.pagination_settings')
-                    @include('admin.includes.settings.export_settings')
-                    @include('admin.includes.settings.global_actions')
+                    {{-- @include('admin.includes.settings.pagination_settings') --}}
+                    {{-- @include('admin.includes.settings.export_settings') --}}
+                    {{-- @include('admin.includes.settings.global_actions') --}}
 
                     <div class="border-top">
                         <div class="card-body">
@@ -52,7 +45,7 @@
             </div>
             <!-- Footer -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="submit" form="settings-form" class="btn btn-primary">Save changes</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
