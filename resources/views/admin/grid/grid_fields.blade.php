@@ -1,7 +1,5 @@
 <tbody>
-    <?php
-        // Log::info("show\n" . print_r($show, true));
-    ?>
+   
     @foreach ($items as $item)
         <tr>
             @foreach ($data['grid']['fields'] as $field_name => $field)

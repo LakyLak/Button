@@ -20,7 +20,6 @@ class CategoryController extends Controller
         $service = new AdminGridSettingsService();
         
         $data = $service->getData($table);
-        // Log::info("data Categories controller\n" . print_r($data, true));
 
         $data['pagination']['current_page'] = $request->page;
         $data['filter']['filter_data'] = $request->except('page', 'sort', 'order');

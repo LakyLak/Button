@@ -1,7 +1,43 @@
 @extends('layouts.admin.admin_layout')
 @section('content')
 
-@include('admin.includes.filter')
+<?php
+    $filter_present = true;
+    $settings_present = true;
+?>
+<div class="row">
+    <div class="col-md-12">
+        <br>
+        @if($filter_present)
+            <a class="card-header link collapsed border-top filter-button collapsed grid-view-link"
+            data-toggle="collapse" data-parent="#filter" href="#Toggle-filter" 
+            aria-expanded="{{ !empty($filter_data) ? 'true' : 'false' }}" aria-controls="Toggle-filter">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <span>Filter</span>
+        </a>
+        @endif
+        @if($settings_present)
+        <a class="card-header link grid-view-link" data-toggle="modal" data-target="#settings_modal">
+            <i class="fas fa-cog" aria-hidden="true"></i>
+            <span>Settings</span>
+        </a>
+        @endif
+
+        @if($filter_present)
+        <a class="card-header link grid-view-link" href="{{ url(Request::path()) }}">
+            <i class="fas fa-times" aria-hidden="true"></i>
+            <span>Reset</span>
+        </a>
+        @endif
+        @if($filter_present)
+            @include('admin.includes.filter')
+        @endif
+        @if($settings_present)
+            @include('admin.includes.settings.settings')
+        @endif
+    </div>
+    
+</div>
 
 <div class="container-fluid">
     <div class="row">

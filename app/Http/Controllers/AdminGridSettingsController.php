@@ -54,8 +54,11 @@ class AdminGridSettingsController extends Controller
             }
         }
 
-        foreach ($grid['fields'] as &$field) {
+        foreach ($grid['fields'] as $field_name => &$field) {
             $field['sortable'] = !isset($field['sortable']) ? 0 : 1;
+            if (!isset($field['value'])) {
+                $field['value'] =  [$field_name, ''];
+            }
         }
 
         Log::info("grid Settings Controller\n" . print_r($grid, true));
