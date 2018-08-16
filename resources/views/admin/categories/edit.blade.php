@@ -19,7 +19,6 @@
                                 <label class="col-sm-3 text-right control-label col-form-label">Is Active</label>
                                 <div class="col-sm-9">
                                     <div class="custom-control custom-checkbox mr-sm-2">
-                                        {{ Log::info($category) }}
                                         <input type="checkbox" class="custom-control-input" id="status" name="status" 
                                             {{ $category->status == 1 ? ' checked' : ''}}>
                                         <label class="custom-control-label" for="status"></label>

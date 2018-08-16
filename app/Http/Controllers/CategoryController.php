@@ -6,18 +6,17 @@ use Illuminate\Http\Request;
 use App\Category;
 use Schema;
 use Log;
-// use App\Http\Traits\SettingsTrait;
 use App\Services\AdminGridSettingsService;
 
 class CategoryController extends Controller
 {
-    // use SettingsTrait;
+    // TODO filter_present, settings_present, custom_fields
 
     public function index(Request $request) 
     {       
         $table = 'categories';
 
-        $service = new AdminGridSettingsService();
+        $service = new AdminGridSettingsService($table);
         
         $data = $service->getData($table);
 

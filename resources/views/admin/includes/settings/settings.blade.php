@@ -10,6 +10,7 @@
     $gird_actions = $data['grid']['actions'];
     $filter_fields = $data['filter']['filter_fields'];
     $filter_visible_fields = $data['filter']['visible_fields'];
+    Log::info("data\n" . print_r($data, true));
 ?>
 
 <div id="settings_modal" class="fade modal">
@@ -25,21 +26,19 @@
             <!-- Body -->
             <div class="modal-body">
                 <h5>Choose settings type</h5>
+                <br>    
                 <form id="settings-form" class="form-horizontal" method="post" action="{{ url('/admin/settings/grid_view_settings/'. $id   ) }}" 
                     name="grid_settings" id="grid_settings" novalidate="novalidate">{{ csrf_field() }}
                     <input type="hidden" name="id" value="{{ $id }}">
                     <input type="hidden" name="model" value="{{ $model }}">
-                    {{-- @include('admin.includes.settings.filter_settings') --}}
+                    @include('admin.includes.settings.filter_settings')
+
                     @include('admin.includes.settings.grid_settings')
-                    {{-- @include('admin.includes.settings.pagination_settings') --}}
+                    {{-- @include('admin.includes.settings.grid_settings_update') --}}
+
+                    @include('admin.includes.settings.pagination_settings')
                     {{-- @include('admin.includes.settings.export_settings') --}}
                     {{-- @include('admin.includes.settings.global_actions') --}}
-
-                    <div class="border-top">
-                        <div class="card-body">
-                            <button type="submit" class="btn btn-primary">Save Settings</button>
-                        </div>
-                    </div>
                 </form>
 
             </div>

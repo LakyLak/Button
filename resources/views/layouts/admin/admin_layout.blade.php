@@ -84,6 +84,7 @@
     <script src="{{ URL::asset('../backend/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js') }}"></script>
     <script src="{{ URL::asset('../js/backend_js/pages/chart/chart-page-init.js') }}"></script>
     <script src="{{ URL::asset('../backend/assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{asset('js/app.js')}}" ></script>
     
     <script>    
         /*datwpicker*/

@@ -33,4 +33,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::match(['get', 'post'], '/admin/categories/add', 'CategoryController@add'); 
 
     Route::post('/admin/settings/grid_view_settings/{id}', 'AdminGridSettingsController@grid_view_settings');
-}); 
+});
+
+Route::get('/', function () {
+    return view('welcome');
+});

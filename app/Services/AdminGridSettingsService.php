@@ -9,6 +9,12 @@ use Auth;
 
 class AdminGridSettingsService
 {
+    public function __construct($table)
+    {
+        $this->table = $table;
+    }
+
+    
     public function getSettings($user, $saved = null)
     {
         $settings = DB::table('admin_grid_settings')->get();
@@ -16,18 +22,18 @@ class AdminGridSettingsService
         return $settings;
     }
 
-    public function getColumnNames($table)
+    public function getColumnNames()
     {
-        return Schema::getColumnListing($table);
+        return Schema::getColumnListing($this->table);
     }
 
-    public function getColumns($table)
+    public function getColumns()
     {
-        $column_names = $this->getColumnNames($table);
+        $column_names = $this->getColumnNames();
         
         $columns = [];
         foreach ($column_names as $column) {
-            $columns[$column] = Schema::getColumnType($table, $column);
+            $columns[$column] = Schema::getColumnType($this->table, $column);
         }
         
         return $columns;
@@ -37,30 +43,32 @@ class AdminGridSettingsService
     {
         $columns = $this->getColumns($table);
 
-        $settings = $this->getSettingsData($table);
+        $settings = $this->getSettingsData();
 
         $data['grid'] = $this->getGridData($settings, $columns);
-        $data['filter'] = $this->getFilterData($settings, $columns);
-        // $data['filter'] = $this->getDefaultFilterData($columns);
-        $data['pagination'] = $this->getDefaultPaginationData();
+        // $data['filter'] = $this->getFilterData($settings, $columns);
+        $data['filter'] = $this->getDefaultFilterData($columns);
+        $data['pagination'] = $this->getPaginationData($settings);
+        // $data['pagination'] = $this->getDefaultPaginationData();
         $data['settings'] = $settings;
         $data['model'] = $table;
 
         return $data;
     }
 
-    public function getSettingsData($table)
+    public function getSettingsData()
     {
         // TODO for more settings row
-        $settings = DB::table('admin_grid_settings')->where('user_id', Auth::id())->where('name', $table)->first();
+        $settings = DB::table('admin_grid_settings')->where('user_id', Auth::id())->where('name', $this->table)->first();
 
         return $settings;
     }
 
     public function getGridData($settings, $columns)
     {
+        $custom_data = $this->getGridCustomFields();
         $default_data = $this->getDefaultGridData($columns);
-        if(!$settings || !$settings->grid_settings) {
+        if(!$settings || empty($settings->grid_settings)) {
             return $default_data;
         } 
         // return $default_data;
@@ -72,20 +80,20 @@ class AdminGridSettingsService
         // take only visible fields from settings
         $default_data['visible_fields'] = $settings['visible_fields'];
 
-        Log::info("settings\n" . print_r($settings, true));
-        Log::info("default_data\n" . print_r($default_data, true));
-
+        
         foreach ($settings as $field_name => $value) {
             $data[$field_name] = $value;
         }
-
+        
         // TODO sorting modifications
-
-        // $r = array_merge($settings, $default_data);
-        // $r['fields']['name'] = array_merge($settings['fields']['name'], $default_data['fields']['name']);
-        Log::info("data\n" . print_r($data, true));
-
+        
+        
         return $data;
+    }
+
+    private function getGridCustomFields()
+    {
+
     }
 
     public function getDefaultGridData($columns)
@@ -171,7 +179,7 @@ class AdminGridSettingsService
     public function getFilterData($settings, $columns)
     {
         $default_data = $this->getDefaultFilterData($columns);
-        if (!$settings || !$settings->filter_settings) {
+        if (!$settings || empty($settings->filter_settings)) {
             return $default_data;
         }
         $settings = json_decode($settings->filter_settings, true);
@@ -277,6 +285,17 @@ class AdminGridSettingsService
         $filter['visible_fields'] = ['name', 'description'];
 
         return $filter;
+    }
+
+    private function getPaginationData($settings)
+    {
+        $default_data = $this->getDefaultPaginationData();
+
+        if (!$settings || empty($settings->pagination_settings)) {
+            return $default_data;
+        }
+
+        return json_decode($settings->pagination_settings, true);
     }
 
     public function getDefaultPaginationData()

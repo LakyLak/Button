@@ -32,6 +32,27 @@
                 
             @endforeach
 
+            {{-- TODO instead of true use Custom fields --}}
+            @if(true)
+                <td>
+                    <a class="card-header link collapsed border-top" data-toggle="collapse" data-parent="#itmes" 
+                        href="#Toggle-{{ $item->id }}" aria-expanded="false" aria-controls="Toggle-{{ $item->id }}">
+                        <i class="fas fa-list-ul" aria-hidden="true"></i>
+                        <span>Items</span>
+                    </a>
+                    <div id="Toggle-{{ $item->id }}" class="collapse multi-collapse">
+                        <div class="card-body widget-content categories-grid-accordion-body">
+                            <ul class="categories-grid-accordion-ul">
+                                {{-- TODO add foreach based on relation --}}
+                                <li class="categories-grid-accordion-li">First Item</li>
+                                <li>First Item</li>
+                                <li>First Item</li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+            @endif
+
             @if ($data['grid']['actions'])
                 <td>
                     @foreach ($data['grid']['available_actions'] as $action_name => $action)

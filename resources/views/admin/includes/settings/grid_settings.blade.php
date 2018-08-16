@@ -1,4 +1,4 @@
-<div class="settings-accordion-button">
+    <div class="settings-accordion-button">
         <a class="form-control link collapsed"
             data-toggle="collapse" data-parent="#grid_settings" href="#Toggle-grid-settings" 
             aria-expanded="false" aria-controls="Toggle-filter">
@@ -10,10 +10,10 @@
         <div class="card-body widget-content filter-settings-accordion-body">
 
             <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title m-b-0">Grid View Fields</h5>
-                </div>
                 <div class="table-responsive">
+                    <div class="card-body">
+                        <h5 class="card-title m-b-0">Grid View Fields</h5>
+                    </div>
                     <table class="table">
                         <thead class="thead-light">
                             <tr>
@@ -25,8 +25,6 @@
                             </tr>
                         </thead>
                         <tbody class="customtable">
-                            <?php Log::info("xxx columns\n" . print_r($columns, true)); ?>
-                            
                             @foreach ($columns as $field_name => $type)
                                 @if (in_array($field_name, ['remember_token', 'image']))
                                     @continue
@@ -47,6 +45,10 @@
                                         {{-- <small class="float-right text-danger">{{ $errors->first('grid-label-{{ $field_name }}') }}</small> --}}
                                     </td>
                                     <td>
+                                        {{-- {{ $type }}
+                                        <input type="hidden" id="grid-type-{{ $field_name }}"" name="grid-type-{{ $field_name }}"
+                                            value={{ $grid_fields[$field_name]['type'] }}> --}}
+
                                         <input type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" 
                                             id="grid-type-{{ $field_name }}" name="grid-type-{{ $field_name }}" 
                                             placeholder="Field Type" value={{ $grid_fields[$field_name]['type'] }}>
@@ -96,7 +98,8 @@
                                 @foreach ($gird_available_actions as $action_name =>$action)
                                     <td scope="col">
                                         <label class="customcheckbox">
-                                            <input type="checkbox" class="listCheckbox" {{ in_array($action_name, $gird_actions) ? 'checked' : '' }}/>
+                                            <input type="checkbox" class="listCheckbox" name="grid-{{ $action_name }}-action"
+                                                {{ in_array($action_name, $gird_actions) ? 'checked' : '' }}/>
                                             <span class="checkmark"></span>
                                         </label>
                                         {{ $action['label'] }}
@@ -110,7 +113,7 @@
                             <label class="customcheckbox col-md-4">
                                 Include Image
                             </label>
-                            <input type="checkbox" class="listCheckbox col-md-2" {{ $data['grid']['include_image'] ? 'checked' : '' }}/>
+                            <input type="checkbox" name="grid-include-image" class="listCheckbox col-md-2" {{ $data['grid']['include_image'] ? 'checked' : '' }}/>
                                 <span class="checkmark"></span>
                         @endif
                     </div>
@@ -118,3 +121,4 @@
             </div>
         </div>
     </div>
+    <br>

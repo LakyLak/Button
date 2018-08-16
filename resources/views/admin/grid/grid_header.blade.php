@@ -10,6 +10,10 @@
                 <th scope="col"><b>{{ $field['label'] }}</b></th>
             @endif
         @endforeach 
+        {{-- TODO instead of true use Custom fields --}}
+        @if(true)
+            <th>Items</th>
+        @endif
         @if ($data['grid']['actions'])
             <th scope="col"><b>Actions</b></th>
         @endif 
