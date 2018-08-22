@@ -10,7 +10,6 @@
     $gird_actions = $data['grid']['actions'];
     $filter_fields = $data['filter']['filter_fields'];
     $filter_visible_fields = $data['filter']['visible_fields'];
-    Log::info("data\n" . print_r($data, true));
 ?>
 
 <div id="settings_modal" class="fade modal">
@@ -37,8 +36,8 @@
                     {{-- @include('admin.includes.settings.grid_settings_update') --}}
 
                     @include('admin.includes.settings.pagination_settings')
-                    {{-- @include('admin.includes.settings.export_settings') --}}
-                    {{-- @include('admin.includes.settings.global_actions') --}}
+                    @include('admin.includes.settings.export_settings')
+                    @include('admin.includes.settings.global_actions')
                 </form>
 
             </div>

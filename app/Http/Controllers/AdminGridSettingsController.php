@@ -13,7 +13,6 @@ class AdminGridSettingsController extends Controller
     
     public function grid_view_settings(Request $request)
     {
-        Log::info("request->all()\n" . print_r($request->all(), true));
         $grid = $filter = $pagination = $export = $global = [];
         
         $data = ['filter' => [], 'grid' => [], 'pagination' => [], 'export' => [], 'global' => []];
@@ -54,7 +53,9 @@ class AdminGridSettingsController extends Controller
             ->update($db_data);
         }
         
-        return redirect()->back();
+        $model = $request->model ?? '';
+        
+        return redirect('/admin/' . $model);
     }
 
 
@@ -107,7 +108,20 @@ class AdminGridSettingsController extends Controller
 
     private function filter_settings($data)
     {
-        
+        $filter = [];
+
+        foreach ($data as $field_actions => $value) {
+            $fields = explode('-', $field_actions);
+            $field_name = $fields[0];
+            $field_action = $fields[1];
+
+            $filter['filter_fields'][$field_name][$field_action] = $value;
+            if ($field_action == 'active' && (!isset($filter['visible_fields']) || !in_array($field_name, $filter['visible_fields']))) {
+                $filter['visible_fields'][] = $field_name;
+            }
+        }
+
+        return $filter;
     }
 
     private function pagination_settings($data)

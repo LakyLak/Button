@@ -45,11 +45,11 @@
                                         {{-- <small class="float-right text-danger">{{ $errors->first('grid-label-{{ $field_name }}') }}</small> --}}
                                     </td>
                                     <td>
-                                        {{-- {{ $type }}
-                                        <input type="hidden" id="grid-type-{{ $field_name }}"" name="grid-type-{{ $field_name }}"
+                                        {{ $type }}
+                                        {{-- <input type="hidden" id="grid-type-{{ $field_name }}"" name="grid-type-{{ $field_name }}"
                                             value={{ $grid_fields[$field_name]['type'] }}> --}}
 
-                                        <input type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" 
+                                        <input type="hidden" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" 
                                             id="grid-type-{{ $field_name }}" name="grid-type-{{ $field_name }}" 
                                             placeholder="Field Type" value={{ $grid_fields[$field_name]['type'] }}>
                                         {{-- <small class="float-right text-danger">{{ $errors->first('grid-type-{{ $field_name }}') }}</small> --}}

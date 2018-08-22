@@ -46,8 +46,8 @@ class AdminGridSettingsService
         $settings = $this->getSettingsData();
 
         $data['grid'] = $this->getGridData($settings, $columns);
-        // $data['filter'] = $this->getFilterData($settings, $columns);
-        $data['filter'] = $this->getDefaultFilterData($columns);
+        $data['filter'] = $this->getFilterData($settings, $columns);
+        // $data['filter'] = $this->getDefaultFilterData($columns);
         $data['pagination'] = $this->getPaginationData($settings);
         // $data['pagination'] = $this->getDefaultPaginationData();
         $data['settings'] = $settings;
@@ -73,12 +73,12 @@ class AdminGridSettingsService
         } 
         // return $default_data;
 
-        $data  =$default_data;
+        $data  = $default_data;
 
         $settings = json_decode($settings->grid_settings, true);
 
         // take only visible fields from settings
-        $default_data['visible_fields'] = $settings['visible_fields'];
+        // $default_data['visible_fields'] = $settings['visible_fields'];
 
         
         foreach ($settings as $field_name => $value) {
@@ -184,7 +184,25 @@ class AdminGridSettingsService
         }
         $settings = json_decode($settings->filter_settings, true);
 
-        return array_merge($settings, $default_data);
+        $filter = $default_data;
+
+        $filter['visible_fields'] = $settings['visible_fields'];
+        $filter['filter_fields'] = $default_data['filter_fields'];
+
+        foreach ($settings['filter_fields'] as $field_name => $actions) {
+            foreach ($actions as $action => $value) {
+                $filter['filter_fields'][$field_name][$action] = $value;
+                if($action == 'condition') {
+                    $filter['filter_fields'][$field_name]['form_name'] = $field_name . '_' . $value;
+                }
+            }
+        }
+
+        // Log::info("fltr default_data\n" . print_r($default_data, true));
+        // Log::info("fltr settings\n" . print_r($settings, true));
+        // Log::info("fltr filter\n" . print_r($filter, true));
+
+        return $filter;
     }
 
     public function getDefaultFilterData($columns)
@@ -221,9 +239,19 @@ class AdminGridSettingsService
                 $filter['filter_fields'][$name] = $c;
                 $c = [];
             }
-            if (in_array($type, ['string', 'text'])) {
+            if (in_array($type, ['string'])) {
                 $c['label'] = ucfirst($name);
-                $c['type'] = 'text';
+                $c['type'] = $type;
+                $c['form_name'] = $name . '_eq';
+                $c['condition'] = 'eq';
+
+
+                $filter['filter_fields'][$name] = $c;
+                $c = [];
+            }
+            if (in_array($type, ['text'])) {
+                $c['label'] = ucfirst($name);
+                $c['type'] = $type;
                 $c['form_name'] = $name . '_eq';
                 $c['condition'] = 'eq';
                 
@@ -233,7 +261,7 @@ class AdminGridSettingsService
             }
             if (in_array($type, ['boolean'])) {
                 $c['label'] = ucfirst($name);
-                $c['type'] = 'flag';
+                $c['type'] = 'boolean';
                 $c['form_name'] = $name . '_eq';
                 $c['condition'] = 'eq';
                 
@@ -244,7 +272,7 @@ class AdminGridSettingsService
 
             if (in_array($type, ['datetime'])) {
                 $c['label'] = ucfirst($name);
-                $c['type'] = 'text';
+                $c['type'] = 'datetime';
                 $c['form_name'] = $name . '_eq';
                 $c['condition'] = 'eq';
                 
@@ -253,9 +281,6 @@ class AdminGridSettingsService
                 $c = [];
             }
 
-            if (in_array($name, ['image'])) {
-                $filter['filter_fields'][$name]['sortable'] = false;
-            }
         }
 
         // $filter_fields = [

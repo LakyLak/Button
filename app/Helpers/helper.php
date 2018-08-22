@@ -2,11 +2,10 @@
 
     function filter_conditions($filter_data)
     {
-
-
         $datetimes = ['created_at', 'updated_at', 'date'];
+        $flags = ['status'];
         $conditions = [];
-        
+
         foreach ($filter_data as $field => $value) {
             if (empty($value) || $field == '_token') {continue;}
 
@@ -22,7 +21,9 @@
                 $value = date("Y-m-d h:i:s", strtotime($value));
             }
 
-            // echo '<pre>'; print_r($options); die;
+            if (in_array($options[0], $flags)) {
+                $value = $value == 'on' ? 1 : 0;
+            }
 
             switch ($options[1]) {
                 case 'like':
@@ -43,7 +44,6 @@
                 default:
                     $conditions[] = [$options[0], '=', $value];
             }
-
         }
 
         return $conditions;

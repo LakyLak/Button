@@ -15,7 +15,8 @@
     {{-- <link href="../backend/assets/libs/flot/css/float-chart.css" rel="stylesheet"> --}}
     <link href="{{ URL::asset('../backend/assets/libs/flot/css/float-chart.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('../css/backend_css/custom_css.css') }}" rel="stylesheet">
-    <link type="text/css" href="{{ URL::asset('../../assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}" rel="stylesheet">
+    <link type="text/css" href="{{ URL::asset('../backend/assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}" rel="stylesheet">
+    {{-- /var/www/button/public/backend/assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css --}}
     <!-- Custom CSS -->
     <link href="{{ URL::asset('../css/backend_css/style.min.css') }}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -75,6 +76,9 @@
     <!--This page JavaScript -->
     <!-- <script src="{{ URL::asset('../js/backend_js/pages/dashboards/dashboard1.js"></') }}script> -->
     <!-- Charts js Files -->
+    {{-- TODO THere is a conflict with datepicker --}}
+    <script src="{{asset('js/app.js')}}" ></script>
+    
     <script src="{{ URL::asset('../backend/assets/libs/flot/excanvas.js') }}"></script>
     <script src="{{ URL::asset('../backend/assets/libs/flot/jquery.flot.js') }}"></script>
     <script src="{{ URL::asset('../backend/assets/libs/flot/jquery.flot.pie.js') }}"></script>
@@ -84,11 +88,11 @@
     <script src="{{ URL::asset('../backend/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js') }}"></script>
     <script src="{{ URL::asset('../js/backend_js/pages/chart/chart-page-init.js') }}"></script>
     <script src="{{ URL::asset('../backend/assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
-    <script src="{{asset('js/app.js')}}" ></script>
+    
     
     <script>    
         /*datwpicker*/
-        jQuery('.mydatepicker').datepicker();
+        jQuery('.mydatepicker').datepicker('dd-mm-yyyy');
         jQuery('#datepicker-autoclose').datepicker({
             autoclose: true,
             todayHighlight: true
