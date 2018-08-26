@@ -27,12 +27,13 @@
                                         <option value="" {{ (count($items) == 0 || empty($filter_data) || !isset($filter_data[$field['form_name']])) ? 'selected' : ''}}>
                                             Choose {{ $field_name }}
                                         </option>
-                                        @if(in_array($field_name, ['status']))
+                                        {{-- @if(in_array($field_name, ['status'])) --}}
+                                        @if($data['grid']['fields'][$field_name]['type'] == 'flag')
                                             <option value="on" {{ !empty($filter_data) && $filter_data[$field['form_name']] == 'on' ? 'selected' : ''}}>
-                                                yes
+                                                {{ $data['grid']['fields'][$field_name]['value'][0] }}
                                             </option>
                                             <option value="off" {{ !empty($filter_data) && $filter_data[$field['form_name']] == 'off' ? 'selected' : ''}}>
-                                                no
+                                                {{ $data['grid']['fields'][$field_name]['value'][1] }}
                                             </option>
                                         @else
                                             @foreach (count($items) > 0 ? $items : $data['filter']['select_items'] as $item)

@@ -20,14 +20,18 @@ class CategoryController extends Controller
         
         $data = $service->getData($table);
 
-        $data['pagination']['current_page'] = $request->page;
         $data['filter']['filter_data'] = $request->except('page', 'sort', 'order');
-
+        
         $conditions = filter_conditions($data['filter']['filter_data']);
-        $data['pagination']['total'] = Category::where($conditions)->count();
-        $items = Category::where($conditions)->sortable()->paginate($data['pagination']['per_page']);
+        if ($data['pagination']['active']) {
+            $data['pagination']['current_page'] = $request->page;
+            $data['pagination']['total'] = Category::where($conditions)->count();
+            $items = Category::where($conditions)->sortable()->paginate($data['pagination']['per_page']);
+        } else {
+            $items = Category::where($conditions)->sortable()->get();
+        }
 
-        // TODO refactor required
+        // TODO refactor required for dynamical relations
         $data['filter']['select_items'] = Category::get();
 
         return view('admin.categories.index', compact(['items', 'data']));

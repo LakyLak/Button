@@ -194,9 +194,9 @@ class AdminGridSettingsService
             }
         }
 
-        Log::info("fltr default_data\n" . print_r($default_data, true));
-        Log::info("fltr settings\n" . print_r($settings, true));
-        Log::info("fltr filter\n" . print_r($filter, true));
+        // Log::info("fltr default_data\n" . print_r($default_data, true));
+        // Log::info("fltr settings\n" . print_r($settings, true));
+        // Log::info("fltr filter\n" . print_r($filter, true));
 
         return $filter;
     }
@@ -299,6 +299,7 @@ class AdminGridSettingsService
     public function getDefaultPaginationData()
     {
         $pagination['per_page'] = 15;
+        $pagination['active'] = true;
 
         return $pagination;
     }

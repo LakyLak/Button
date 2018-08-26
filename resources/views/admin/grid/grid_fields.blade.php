@@ -69,7 +69,7 @@
                 </td>
             @endif
             @if ($data['grid']['include_image'] )
-                <td>{{ $item->image ?: 'Some general image' }}</td>
+                <td><img src="{{ asset($item->image) }}" height="42" width="42" /></td>
             @endif
         </tr>
 

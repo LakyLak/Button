@@ -28,7 +28,8 @@
                                 <label class="col-sm-3 text-right control-label col-form-label">Upload Image</label>
                                 <div class="col-sm-9">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input {{ $errors->has('current_pwd') ? 'is-invalid' : '' }}" id="image" name="image"  required>
+                                        <input type="file" class="custom-file-input {{ $errors->has('current_pwd') ? 'is-invalid' : '' }}" 
+                                            id="image" name="image"  required>
                                         <label class="custom-file-label" for="image">Choose file...</label>
                                         <div class="invalid-feedback">Example invalid custom file feedback</div>
                                     </div>

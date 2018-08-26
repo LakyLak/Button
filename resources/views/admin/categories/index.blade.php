@@ -3,6 +3,7 @@
 
 <?php
     $filter_present = $data['filter']['show_filter'];
+    $allow_pagination = $data['pagination']['active'];
     $settings_present = true;
 ?>
 <div class="row">
@@ -45,10 +46,14 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title m-b-0 float-sm-left">Categories List</h5>
-                    @include('admin.includes.pagination', ['result_info' => false])
+                    @if($allow_pagination)
+                        @include('admin.includes.pagination', ['result_info' => false])
+                    @endif
                 </div>
                 @include('admin.grid.grid_view')
-                @include('admin.includes.pagination', ['result_info' => true])
+                @if($allow_pagination)
+                    @include('admin.includes.pagination', ['result_info' => true])
+                @endif
             </div>
         </div>
     </div>

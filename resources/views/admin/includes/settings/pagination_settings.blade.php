@@ -18,6 +18,7 @@
                 <div class="col-sm-9">
                     <input type="checkbox" class="custom-checkbox form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" 
                         id="pagination-active-pagination" name="pagination-active-pagination" 
+                        {{ $data['pagination']['active'] ? 'checked' : '' }}
                         {{-- {{ in_array($field_name, $grid_visible_fields) ? 'checked' : '' }} --}}
                         >
                     <small class="float-right text-danger">{{ $errors->first('name') }}</small>

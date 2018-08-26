@@ -111,7 +111,6 @@ class AdminGridSettingsController extends Controller
     private function filter_settings($data)
     {
         $filter = [];
-        Log::info(basename(__FILE__).":".__LINE__. " data\n" . print_r($data, true));
 
         foreach ($data as $field_actions => $value) {
             if($field_actions == 'filter-show') {
@@ -134,6 +133,7 @@ class AdminGridSettingsController extends Controller
 
     private function pagination_settings($data)
     {
+        Log::info(basename(__FILE__).":".__LINE__. " pagination data\n" . print_r($data, true));
         $pagination = [];
 
         foreach ($data as $field_actions => $value) {
@@ -143,6 +143,8 @@ class AdminGridSettingsController extends Controller
 
             $pagination[$field_action] = $value;
         }
+        $pagination['active'] = $data['pagination-active'] ?? 0;
+        Log::info(basename(__FILE__).":".__LINE__. " pagination\n" . print_r($pagination, true));
 
         return $pagination;
     }
