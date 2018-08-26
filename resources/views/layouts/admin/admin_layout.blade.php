@@ -92,7 +92,7 @@
     
     <script>    
         /*datwpicker*/
-        jQuery('.mydatepicker').datepicker('dd-mm-yyyy');
+        jQuery('.mydatepicker').datepicker({format: 'dd-mm-yyyy', todayHighlight: true});
         jQuery('#datepicker-autoclose').datepicker({
             autoclose: true,
             todayHighlight: true

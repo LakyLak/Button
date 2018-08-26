@@ -71,22 +71,15 @@ class AdminGridSettingsService
         if(!$settings || empty($settings->grid_settings)) {
             return $default_data;
         } 
-        // return $default_data;
-
         $data  = $default_data;
 
         $settings = json_decode($settings->grid_settings, true);
 
-        // take only visible fields from settings
-        // $default_data['visible_fields'] = $settings['visible_fields'];
-
-        
         foreach ($settings as $field_name => $value) {
             $data[$field_name] = $value;
         }
-        
+
         // TODO sorting modifications
-        
         
         return $data;
     }
@@ -99,6 +92,7 @@ class AdminGridSettingsService
     public function getDefaultGridData($columns)
     {
         $grid = [];
+
         foreach ($columns as $name => $type) {
             if (in_array($name, ['remember_token'])) {
                 continue;
@@ -157,6 +151,7 @@ class AdminGridSettingsService
             ];
             $grid['actions'] = ['view', 'edit', 'delete'];
             $grid['include_image'] = false;
+            $grid['row_numbers'] = false;
             $grid['available_columns'] = $columns;
         }
 
@@ -187,6 +182,7 @@ class AdminGridSettingsService
         $filter = $default_data;
 
         $filter['visible_fields'] = $settings['visible_fields'];
+        $filter['show_filter'] = $settings['show_filter'];
         $filter['filter_fields'] = $default_data['filter_fields'];
 
         foreach ($settings['filter_fields'] as $field_name => $actions) {
@@ -198,9 +194,9 @@ class AdminGridSettingsService
             }
         }
 
-        // Log::info("fltr default_data\n" . print_r($default_data, true));
-        // Log::info("fltr settings\n" . print_r($settings, true));
-        // Log::info("fltr filter\n" . print_r($filter, true));
+        Log::info("fltr default_data\n" . print_r($default_data, true));
+        Log::info("fltr settings\n" . print_r($settings, true));
+        Log::info("fltr filter\n" . print_r($filter, true));
 
         return $filter;
     }
@@ -283,30 +279,7 @@ class AdminGridSettingsService
 
         }
 
-        // $filter_fields = [
-        //     'name' => [
-        //         'form_name' => 'name_like',
-        //         'label' => 'Name',
-        //         'type' => 'text'
-        //     ],
-        //     'description' => [
-        //         'form_name' => 'description_like',
-        //         'label' => 'Description',
-        //         'type' => 'text'
-        //     ],
-        //     'created_from' => [
-        //         'form_name' => 'created_at_gte',
-        //         'label' => 'Created From',
-        //         'type' => 'datetime'
-        //     ],
-        //     'created_to' => [
-        //         'form_name' => 'created_at_lte',
-        //         'label' => 'Created To',
-        //         'type' => 'datetime'
-        //     ]
-        // ];
-
-        // $filter['filter_fields'] = $filter_fields;
+        $filter['show_filter'] = true;
         $filter['visible_fields'] = ['name', 'description'];
 
         return $filter;

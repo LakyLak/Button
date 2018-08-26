@@ -1,5 +1,8 @@
 <thead>
     <tr>
+        @if ($data['grid']['row_numbers'] == true)
+            <th></th>
+        @endif
         @foreach ($data['grid']['fields'] as $field_name => $field)
             @if (!in_array($field_name, $show) || $field_name == 'image')
                 @continue

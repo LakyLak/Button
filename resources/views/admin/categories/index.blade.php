@@ -2,7 +2,7 @@
 @section('content')
 
 <?php
-    $filter_present = true;
+    $filter_present = $data['filter']['show_filter'];
     $settings_present = true;
 ?>
 <div class="row">
@@ -23,12 +23,12 @@
         </a>
         @endif
 
-        @if($filter_present)
+        {{-- @if($filter_present) --}}
         <a class="card-header link grid-view-link" href="{{ url(Request::path()) }}">
             <i class="fas fa-times" aria-hidden="true"></i>
             <span>Reset</span>
         </a>
-        @endif
+        {{-- @endif --}}
         @if($filter_present)
             @include('admin.includes.filter')
         @endif

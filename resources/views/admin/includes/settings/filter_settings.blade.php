@@ -9,11 +9,18 @@
     <div id="Toggle-filter-settings" class="collapse multi-collapse">
         <div class="card-body widget-content filter-settings-accordion-body">
             <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title m-b-0">Filter Fields</h5>
+                <div class="col-md-6">
+                        <label class="customcheckbox col-md-4">
+                            Show Filter
+                        </label>
+                        <input type="checkbox" name="filter-show-filter" class="listCheckbox col-md-2" {{ $data['filter']['show_filter'] ? 'checked' : '' }}/>
+                            <span class="checkmark"></span>
                 </div>
                 <div class="table-responsive">
                     <table class="table">
+                        <div class="card-body">
+                            <h5 class="card-title m-b-0">Filter Fields</h5>
+                        </div>
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col">Active</th>
@@ -23,9 +30,6 @@
                             </tr>
                         </thead>
                         <tbody class="customtable">
-                            {{-- {{ Log::info("columns\n" . print_r($columns, true)) }} --}}
-                            {{-- {{ Log::info("filter_fields\n" . print_r($filter_fields, true)) }} --}}
-
                             @foreach ($columns as $field_name => $field)
                                 @if (in_array($field_name, ['remember_token', 'image']))
                                     @continue

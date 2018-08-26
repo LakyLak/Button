@@ -99,7 +99,7 @@
                                 <div class="form-group">
                                     <label for="{{ $field['form_name'] }}">{{ $field['label'] }}</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control mydatepicker" placeholder="mm/dd/yyyy" 
+                                        <input type="text" class="form-control mydatepicker" placeholder="dd-mm-yyyy" 
                                             id="{{ $field['form_name'] }}" name="{{ $field['form_name'] }}" 
                                             value="{{ !empty($filter_data[$field['form_name']]) ? $filter_data[$field['form_name']] : '' }}">   
                                         <div class="input-group-append">
@@ -115,7 +115,7 @@
                             <div class="form-group">
                                 <label for="created_at_gte">Created From</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control mydatepicker" placeholder="mm/dd/yyyy" 
+                                    <input type="text" class="form-control mydatepicker" placeholder="dd-mm-yyyy" 
                                         id="created_at_gte" name="created_at_gte" 
                                         value="{{ !empty($filter_data['created_at_gte']) ? $filter_data['created_at_gte'] : '' }}">   
                                     <div class="input-group-append">
@@ -129,7 +129,7 @@
                             <div class="form-group">
                                 <label for="created_at_lte">Created To</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control mydatepicker" placeholder="mm/dd/yyyy" 
+                                    <input type="text" class="form-control mydatepicker" placeholder="dd-mm-yyyy" 
                                         id="created_at_lte" name="created_at_lte" 
                                         value="{{ !empty($filter_data['created_at_lte']) ? $filter_data['created_at_lte'] : '' }}">   
                                     <div class="input-group-append">

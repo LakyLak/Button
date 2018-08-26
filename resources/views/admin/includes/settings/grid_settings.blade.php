@@ -11,10 +11,10 @@
 
             <div class="card">
                 <div class="table-responsive">
-                    <div class="card-body">
-                        <h5 class="card-title m-b-0">Grid View Fields</h5>
-                    </div>
                     <table class="table">
+                        <div class="card-body">
+                            <h5 class="card-title m-b-0">Grid View Fields</h5>
+                        </div>
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col">Active</th>
@@ -108,15 +108,27 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="col-md-6">
-                        @if (in_array('image', array_keys($columns)))
-                            <label class="customcheckbox col-md-4">
-                                Include Image
-                            </label>
-                            <input type="checkbox" name="grid-include-image" class="listCheckbox col-md-2" {{ $data['grid']['include_image'] ? 'checked' : '' }}/>
-                                <span class="checkmark"></span>
-                        @endif
-                    </div>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title m-b-0">Additional Actions</h5>
+                </div>
+                <div class="col-md-6">
+                    @if (in_array('image', array_keys($columns)))
+                        <label class="customcheckbox col-md-4">
+                            Include Image
+                        </label>
+                        <input type="checkbox" name="grid-include-image" class="listCheckbox col-md-2" {{ $data['grid']['include_image'] ? 'checked' : '' }}/>
+                            <span class="checkmark"></span>
+                    @endif
+                </div>
+                <div class="col-md-6">
+                    @if (in_array('image', array_keys($columns)))
+                        <label class="customcheckbox col-md-4">
+                            Number Rows
+                        </label>
+                        <input type="checkbox" name="grid-include-row_numbers" class="listCheckbox col-md-2" {{ $data['grid']['row_numbers'] ? 'checked' : '' }}/>
+                            <span class="checkmark"></span>
+                    @endif
                 </div>
             </div>
         </div>

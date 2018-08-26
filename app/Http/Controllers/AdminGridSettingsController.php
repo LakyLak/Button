@@ -73,6 +73,8 @@ class AdminGridSettingsController extends Controller
             }
             elseif ($field_name == 'image') {
                 $grid['include_image'] = true;
+            } elseif ($field_name == 'row_numbers') {
+                $grid['row_numbers'] = true;
             }
             else {
                 $grid['fields'][$field_name][$field_action] = $value;
@@ -109,8 +111,12 @@ class AdminGridSettingsController extends Controller
     private function filter_settings($data)
     {
         $filter = [];
+        Log::info(basename(__FILE__).":".__LINE__. " data\n" . print_r($data, true));
 
         foreach ($data as $field_actions => $value) {
+            if($field_actions == 'filter-show') {
+                continue;
+            }
             $fields = explode('-', $field_actions);
             $field_name = $fields[0];
             $field_action = $fields[1];
@@ -120,6 +126,8 @@ class AdminGridSettingsController extends Controller
                 $filter['visible_fields'][] = $field_name;
             }
         }
+
+        $filter['show_filter'] = $data['filter-show'] ?? 0;
 
         return $filter;
     }

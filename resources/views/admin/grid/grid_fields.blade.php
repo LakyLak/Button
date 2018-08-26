@@ -1,12 +1,14 @@
 <tbody>
-   
     @foreach ($items as $item)
         <tr>
+            @if ($data['grid']['row_numbers'] == true)
+                <td>{{ $row_number++ }}</td>
+            @endif
+            {{-- <td>{{ $data['grid']['fields']['row_number']['value'] }}</td> --}}
             @foreach ($data['grid']['fields'] as $field_name => $field)
                 @if (!in_array($field_name, $show)) 
                     @continue
                 @endif
-            
                 @if ($field['type'] == 'flag')
                     <td class="text-{{ $item->$field_name ? 'success' : 'danger' }}">
                         {{ $item->$field_name ? $field['value'][0] : $field['value'][1] }}
