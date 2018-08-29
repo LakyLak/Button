@@ -69,7 +69,10 @@
                 </td>
             @endif
             @if ($data['grid']['include_image'] )
-                <td><img src="{{ asset($item->image) }}" height="42" width="42" /></td>
+                @php
+                    $image = file_exists('storage/uploads/'. $item->image) ?  asset('storage/uploads/' . $item->image) : $item->image;
+                @endphp
+                <td><img src="{{ $image }}" height="42" width="42" /></td>
             @endif
         </tr>
 

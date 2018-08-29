@@ -11,6 +11,7 @@
         <div class="card-body widget-content pagination-settings-accordion-body">
             <ul>
                 <li>simple - condensed</li>
+                <li>radio button: slider - pagination - no pagination</li>
             </ul>
 
             <div class="form-group row">

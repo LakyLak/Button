@@ -13,9 +13,18 @@ class AdminGridSettingsController extends Controller
     
     public function grid_view_settings(Request $request)
     {
+        $model = $request->model ?? '';
         $grid = $filter = $pagination = $export = $global = [];
-        
         $data = ['filter' => [], 'grid' => [], 'pagination' => [], 'export' => [], 'global' => []];
+
+        if (isset($request->reset)) {
+            // TODO partial delete on specific settings
+            DB::table('admin_grid_settings')
+                ->where('id', $request->id)
+                ->delete();
+            return redirect('/admin/' . $model);
+        } 
+
         foreach ($request->all() as $key => $value) {
             if (in_array($key, ['id', 'model', '_token'])) {
                 continue;
@@ -52,8 +61,6 @@ class AdminGridSettingsController extends Controller
             ->where('id', $request->id)
             ->update($db_data);
         }
-        
-        $model = $request->model ?? '';
         
         return redirect('/admin/' . $model);
     }

@@ -56,7 +56,11 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="el-card-item">
-                                <div class="el-card-avatar el-overlay-1"> <img src="{{ asset($category->image) }}" alt="user" />
+                                <div class="el-card-avatar el-overlay-1"> 
+                                    @php 
+                                        $image = file_exists('storage/uploads/'. $category->image) ?  asset('storage/uploads/' . $category->image) : $category->image;
+                                    @endphp
+                                    <img src="{{ $image }}" />
                                 {{-- <div class="el-card-avatar el-overlay-1"> <img src="{{ URL::asset('../backend/assets/images/big/img1.jpg') }}" alt="user" /> --}}
                                 {{-- <div class="el-card-avatar el-overlay-1"> <img src="{{ URL::asset('../backend/assets/images/empty-image.png') }}" alt="user" /> --}}
                                     <div class="el-overlay">

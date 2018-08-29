@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-6">
                 <form class="form-horizontal" method="post" action="{{ url('/admin/categories/add') }}" 
-                    name="add_category" id="add_category" novalidate="novalidate">{{ csrf_field() }}
+                    name="add_category" id="add_category" novalidate="novalidate" enctype="multipart/form-data">{{ csrf_field() }}
                     <div class="card">
                         <div class="card-body">
                             <div class="form-group row">
@@ -28,10 +28,11 @@
                                 <label class="col-sm-3 text-right control-label col-form-label">Upload Image</label>
                                 <div class="col-sm-9">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input {{ $errors->has('current_pwd') ? 'is-invalid' : '' }}" 
-                                            id="image" name="image"  required>
-                                        <label class="custom-file-label" for="image">Choose file...</label>
-                                        <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                        <input type="file" 
+                                        {{-- class="custom-file-input {{ $errors->has('current_pwd') ? 'is-invalid' : '' }}"  --}}
+                                            id="image" name="image" required>
+                                        {{-- <label class="custom-file-label" for="image">Choose file...</label> --}}
+                                        {{-- <div class="invalid-feedback">Example invalid custom file feedback</div> --}}
                                     </div>
                                 </div>
                             </div>

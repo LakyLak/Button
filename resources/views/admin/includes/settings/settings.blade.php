@@ -2,7 +2,6 @@
     $settings = $data['settings'];
     $id = $settings->id ?? 'new';
     $columns = $data['grid']['available_columns'];
-    // $column_types = array_unique(array_values($columns));
     $model = $data['model'];
     $grid_fields = $data['grid']['fields'];
     $grid_visible_fields = $data['grid']['visible_fields'];
@@ -26,7 +25,7 @@
             <div class="modal-body">
                 <h5>Choose settings type</h5>
                 <br>    
-                <form id="settings-form" class="form-horizontal" method="post" action="{{ url('/admin/settings/grid_view_settings/'. $id   ) }}" 
+                <form id="settings-form" class="form-horizontal" method="post" action="{{ url('/admin/settings/grid_view_settings/'. $id) }}" 
                     name="grid_settings" id="grid_settings" novalidate="novalidate">{{ csrf_field() }}
                     <input type="hidden" name="id" value="{{ $id }}">
                     <input type="hidden" name="model" value="{{ $model }}">
@@ -43,11 +42,11 @@
             </div>
             <!-- Footer -->
             <div class="modal-footer">
-                <button type="submit" form="settings-form" class="btn btn-primary">Save changes</button>
+                <button type="submit" form="settings-form" name="reset" value="reset" class="btn btn-primary">Reset to default</button>
+                <button type="submit" form="settings-form" class="btn btn-success">Save changes</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
-
 

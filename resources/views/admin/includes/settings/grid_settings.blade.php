@@ -46,9 +46,6 @@
                                     </td>
                                     <td>
                                         {{ $type }}
-                                        {{-- <input type="hidden" id="grid-type-{{ $field_name }}"" name="grid-type-{{ $field_name }}"
-                                            value={{ $grid_fields[$field_name]['type'] }}> --}}
-
                                         <input type="hidden" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" 
                                             id="grid-type-{{ $field_name }}" name="grid-type-{{ $field_name }}" 
                                             placeholder="Field Type" value={{ $grid_fields[$field_name]['type'] }}>

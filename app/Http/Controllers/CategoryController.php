@@ -57,11 +57,14 @@ class CategoryController extends Controller
             ]);
 
             $data = $request->all();
+            $image = $request->file('image');
+            $image_name = $data['name'] . '.' . $image->getClientOriginalExtension();
+            $destination_path = $image->storeAs('public/uploads', $image_name);
 
             $category = new Category;
             $category->name = $data['name'];
             $category->status = !empty($data['status']) && $data['status'] == 'on' ? 1 : 0;
-            $category->image = $data['image'];
+            $category->image = $image_name;
             $category->description = $data['description'];
 
             $category->save();
