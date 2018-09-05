@@ -19,7 +19,11 @@
 @if ($result_info)
     <div class="card-body">
         <div class="col-sm-5 result-info" style="display:inline-block;">
-            Showing  {{ $result_from }} to  {{ $result_to }} of {{ $total }} entries
+            @if ($total == 0)
+                No items found                
+            @else
+                Showing  {{ $result_from }} to  {{ $result_to }} of {{ $total }} entries
+            @endif
         </div>
 @endif
 @if ($pages > 1)

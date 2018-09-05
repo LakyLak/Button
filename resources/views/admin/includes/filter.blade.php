@@ -27,7 +27,6 @@
                                         <option value="" {{ (count($items) == 0 || empty($filter_data) || !isset($filter_data[$field['form_name']])) ? 'selected' : ''}}>
                                             Choose {{ $field_name }}
                                         </option>
-                                        {{-- @if(in_array($field_name, ['status'])) --}}
                                         @if($data['grid']['fields'][$field_name]['type'] == 'flag')
                                             <option value="on" {{ !empty($filter_data) && $filter_data[$field['form_name']] == 'on' ? 'selected' : ''}}>
                                                 {{ $data['grid']['fields'][$field_name]['value'][0] }}
@@ -51,7 +50,7 @@
                             </div>
                             @endif
 
-                            @if($field['type'] === 'integer')
+                            @if($field['type'] === 'integer' || $field['type'] === 'number')
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label for="{{ $field['form_name'] }}">{{ $field['label'] }}</label>
@@ -144,7 +143,7 @@
                     </div>
                             
                     <button type="submit" class="btn btn-success">Search</button>
-                    <a type="button" href={{ url('/admin/categories') }} class="btn btn-primary">Clear Search</a>
+                    <a type="button" href="{{ url(Request::path()) }}" class="btn btn-primary">Clear Search</a>
                 </div>
             </div>
         </form>

@@ -98,7 +98,7 @@ class AdminGridSettingsService
                 continue;
             }
 
-            if (in_array($type, ['integer'])) {
+            if (in_array($type, ['integer', 'decimal'])) {
                 $c['value'] = [$name, ''];
                 $c['label'] = ucfirst($name);
                 $c['type'] = 'number';
@@ -194,10 +194,6 @@ class AdminGridSettingsService
             }
         }
 
-        // Log::info("fltr default_data\n" . print_r($default_data, true));
-        // Log::info("fltr settings\n" . print_r($settings, true));
-        // Log::info("fltr filter\n" . print_r($filter, true));
-
         return $filter;
     }
 
@@ -225,7 +221,7 @@ class AdminGridSettingsService
                 continue;
             }
 
-            if (in_array($type, ['integer'])) {
+            if (in_array($type, ['integer', 'decimal'])) {
                 $c['label'] = ucfirst($name);
                 $c['type'] = 'number';
                 $c['form_name'] = $name . '_eq';

@@ -35,14 +35,14 @@
                                     @continue
                                 @endif
                                 <tr>
-                                    <th>
+                                    <td>
                                         <label class="customcheckbox">
                                             <input type="checkbox" class="listCheckbox" id="filter-active-{{ $field_name }}" 
                                                 name="filter-active-{{ $field_name }}"
                                                 {{ in_array($field_name, $filter_visible_fields) ? 'checked' : '' }}/>
                                             <span class="checkmark"></span>
                                         </label>
-                                    </th>
+                                    </td>
                                     <td>
                                         <input type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" 
                                             id="filter-label-{{ $field_name }}" name="filter-label-{{ $field_name }}" 
@@ -72,7 +72,7 @@
                                             @if(in_array($field, ['string', 'text']))
                                                 <option value="like"{{ $filter_fields[$field_name]['condition'] == 'like' ? 'selected' : ''}}>like</option>
                                             @endif
-                                            @if(in_array($filter_fields[$field_name]['type'], ['datetime', 'integer']))
+                                            @if(in_array($filter_fields[$field_name]['type'], ['datetime', 'integer', 'number']))
                                                 <option value="lt" {{ $filter_fields[$field_name]['condition'] == 'lt' ? 'selected' : ''}}>lt</option>
                                                 <option value="lte" {{ $filter_fields[$field_name]['condition'] == 'lte' ? 'selected' : ''}}>lte</option>
                                                 <option value="gt" {{ $filter_fields[$field_name]['condition'] == 'gt' ? 'selected' : ''}}>gt</option>

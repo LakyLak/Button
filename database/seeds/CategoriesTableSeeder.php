@@ -9,7 +9,7 @@ class CategoriesTableSeeder extends Seeder {
     {
         $faker = Faker\Factory::create();
 
-        Category::truncate(); 
+        // Category::truncate(); 
 
         foreach (range(1, 100) as $index) {
             Category::create([
